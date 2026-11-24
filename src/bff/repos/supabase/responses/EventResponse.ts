@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { type Event, EventCatalogType, EventVisibility } from "../../../domain/Event";
-import { EventMapper } from "../../../domain/mappers/EventMapper";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { parseResponse } from "../../parse-response";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { type Event, EventCatalogType, EventVisibility } from "../../../domain/Event.js";
+import { EventMapper } from "../../../domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { parseResponse } from "../../parse-response.js";
 
 const OPERATION = "findEvent";
 

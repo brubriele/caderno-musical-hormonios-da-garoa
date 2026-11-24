@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { type Attendance, AttendanceAnswer } from "../../../domain/Attendance";
-import type { Event } from "../../../domain/Event";
-import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
+import { type Attendance, AttendanceAnswer } from "../../../domain/Attendance.js";
+import type { Event } from "../../../domain/Event.js";
+import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
 
 const OPERATION = "findAttendance";
 

@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../../domain/IntegrationStatus";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
+import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../../domain/IntegrationStatus.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
 
 const OPERATION = "findIntegrationStatus";
 

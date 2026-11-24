@@ -1,4 +1,4 @@
-import type { User } from "../../../domain/User";
+import type { User } from "../../../domain/User.js";
 
 // linha de "user": o User inteiro vai em data; o email repete em coluna (único, a busca)
 export interface RowUser {

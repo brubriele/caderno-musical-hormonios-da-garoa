@@ -1,4 +1,4 @@
-import type { Event } from "../../../domain/Event";
+import type { Event } from "../../../domain/Event.js";
 
 // spec-8 B1
 export interface IUpdateCurrentEventParams {

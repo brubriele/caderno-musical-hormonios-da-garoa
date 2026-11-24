@@ -1,4 +1,4 @@
-import type { IntegrationStatus } from "../../../domain/IntegrationStatus";
+import type { IntegrationStatus } from "../../../domain/IntegrationStatus.js";
 
 export interface RowIntegrationStatus {
   id: string;

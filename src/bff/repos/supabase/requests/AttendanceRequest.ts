@@ -1,4 +1,4 @@
-import type { Attendance } from "../../../domain/Attendance";
+import type { Attendance } from "../../../domain/Attendance.js";
 
 // linha de attendance: a Attendance inteira vai em data; as colunas repetem o que o repo consulta
 export interface RowAttendance {

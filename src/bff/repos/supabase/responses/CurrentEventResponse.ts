@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { Event } from "../../../domain/Event";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
+import { Event } from "../../../domain/Event.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
 
 const OPERATION = "updateCurrentEvent";
 

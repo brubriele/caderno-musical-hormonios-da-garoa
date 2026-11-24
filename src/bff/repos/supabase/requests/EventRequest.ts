@@ -1,4 +1,4 @@
-import type { Event } from "../../../domain/Event";
+import type { Event } from "../../../domain/Event.js";
 
 // upsert de event pelo id: o Event inteiro vai em data, sem o isActive (spec-8 C1); as colunas repetem o que o repo consulta
 export interface RowEvent {
