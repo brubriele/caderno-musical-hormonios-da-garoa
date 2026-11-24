@@ -91,6 +91,7 @@ Perfis sugeridos (a validar): participante, colaborador, produção e administra
 - Adaptar a BFF para manter explicitamente separados os projetos Supabase.
 - Integrar sessão na navegação dos módulos.
 - Substituir dados demonstrativos de ensaios por endpoints reais somente após autorização.
+- Implementar autenticação central e sessão compartilhada com a Bea após definição do contrato de identidade.
 - Definir estratégia de logout global, expiração e revogação de sessão.
 
 ## Fora do escopo
