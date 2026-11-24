@@ -7,9 +7,9 @@ Atualizado em 24/11/2026.
 - Repositório: https://github.com/brubriele/caderno-musical-hormonios-da-garoa
 - Branch de trabalho: `feat/identidade-unificada-preview`
 - Branch-base: `feat/integracao-infra-bea`
-- Preview Vercel: https://hormonios-caderno-musical-7ey6ov6sj-brubrieletools-3860.vercel.app
-- Deployment verificado como READY: `dpl_DdbL3sGg2QqioeLdVpJ7LPD83ZJR`
-- Commit do deployment READY: `48c90bec22a82e4607735792387306e2edf4a71b`
+- Preview Vercel: https://hormonios-caderno-musical-git-feat-i-52219f-brubrieletools-3860.vercel.app
+- URL de branch (alias do Preview mais recente): `https://hormonios-caderno-musical-git-feat-i-52219f-brubrieletools-3860.vercel.app`
+- O Preview é atualizado automaticamente a cada push nesta branch.
 - Projeto Vercel: `hormonios-caderno-musical`
 
 ## Objetivo desta entrega
