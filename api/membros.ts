@@ -1,9 +1,9 @@
-import { NotFoundError } from "../src/bff/errors/app-error";
-import { Envolviment } from "../src/bff/envolviment/Envolviment";
-import { handle } from "../src/bff/http/handle";
-import { readUserId } from "../src/bff/http/user-cookie";
-import { FindingUserBookingUsecase } from "../src/bff/usecases/booking/FindingUserBookingUsecase";
-import { UserBookingResponse } from "./_responses/UserBookingResponse";
+import { NotFoundError } from "../src/bff/errors/app-error.js";
+import { Envolviment } from "../src/bff/envolviment/Envolviment.js";
+import { handle } from "../src/bff/http/handle.js";
+import { readUserId } from "../src/bff/http/user-cookie.js";
+import { FindingUserBookingUsecase } from "../src/bff/usecases/booking/FindingUserBookingUsecase.js";
+import { UserBookingResponse } from "./_responses/UserBookingResponse.js";
 
 // spec-9 C1
 export const GET = handle(async (request) => {

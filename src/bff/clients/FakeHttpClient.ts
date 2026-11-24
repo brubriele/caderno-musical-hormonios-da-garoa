@@ -1,7 +1,7 @@
-import type { IHttpRequest } from "./http-client";
-import type { IClientResponse } from "../interfaces/client-response";
-import type { IHttpClient } from "../interfaces/IHttpClient";
-import { createLogger, LogContext } from "../lib/logger";
+import type { IHttpRequest } from "./http-client.js";
+import type { IClientResponse } from "../interfaces/client-response.js";
+import type { IHttpClient } from "../interfaces/IHttpClient.js";
+import { createLogger, LogContext } from "../lib/logger.js";
 
 const logger = createLogger("FakeHttpClient", LogContext.TransicionaisRepository);
 

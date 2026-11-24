@@ -1,7 +1,7 @@
-import { Envolviment } from "../../src/bff/envolviment/Envolviment";
-import { requireCron } from "../../src/bff/http/cron-auth";
-import { handle } from "../../src/bff/http/handle";
-import { type IJobInput, JobUsecase } from "../../src/bff/usecases/job/JobUsecase";
+import { Envolviment } from "../../src/bff/envolviment/Envolviment.js";
+import { requireCron } from "../../src/bff/http/cron-auth.js";
+import { handle } from "../../src/bff/http/handle.js";
+import { type IJobInput, JobUsecase } from "../../src/bff/usecases/job/JobUsecase.js";
 
 export const GET = handle(async (request) => {
   await requireCron(request);

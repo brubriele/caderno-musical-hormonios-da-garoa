@@ -1,12 +1,12 @@
-import { Envolviment } from "../../src/bff/envolviment/Envolviment";
-import { getOrCreateDevice } from "../../src/bff/http/device";
-import { handle, readJson } from "../../src/bff/http/handle";
-import { createUserCookie, readUserId } from "../../src/bff/http/user-cookie";
+import { Envolviment } from "../../src/bff/envolviment/Envolviment.js";
+import { getOrCreateDevice } from "../../src/bff/http/device.js";
+import { handle, readJson } from "../../src/bff/http/handle.js";
+import { createUserCookie, readUserId } from "../../src/bff/http/user-cookie.js";
 import {
   CreatingOrUpdatingAttendanceUsecase,
   type ICreatingOrUpdatingAttendanceBody,
-} from "../../src/bff/usecases/booking/CreatingOrUpdatingAttendanceUsecase";
-import { UserResponse } from "../_responses/UserResponse";
+} from "../../src/bff/usecases/booking/CreatingOrUpdatingAttendanceUsecase.js";
+import { UserResponse } from "../_responses/UserResponse.js";
 
 // D15, F7, F8
 export const POST = handle(async (request) => {
