@@ -10,12 +10,12 @@ import {
   EventGroupMetadata,
   EventMetadata,
   EventVisibility,
-} from "../../../domain/Event";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { TransicionaisIdSchema } from "../transicionais-id";
-import { LoanCatalogKind } from "./loan-catalog.response";
+} from "../../../domain/Event.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
+import { LoanCatalogKind } from "./loan-catalog.response.js";
 
 const OPERATION = "publicEvent";
 

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Attendance, AttendanceAnswer, AttendanceMetadata } from "../../../domain/Attendance";
+import { Attendance, AttendanceAnswer, AttendanceMetadata } from "../../../domain/Attendance.js";
 import {
   EventCatalog,
   EventCatalogMetadata,
@@ -7,12 +7,12 @@ import {
   EventCatalogType,
   EventGroup,
   EventGroupMetadata,
-} from "../../../domain/Event";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { ValidationAnswer } from "../requests/validation-change.request";
-import { TransicionaisIdSchema } from "../transicionais-id";
+} from "../../../domain/Event.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { ValidationAnswer } from "../requests/validation-change.request.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 const OPERATION = "guestPresence";
 

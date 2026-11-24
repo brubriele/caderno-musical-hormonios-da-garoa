@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { UserMapper } from "../../../domain/mappers/UserMapper";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import type { User, UserAccount } from "../../../domain/User";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { TransicionaisIdSchema } from "../transicionais-id";
+import { UserMapper } from "../../../domain/mappers/UserMapper.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import type { User, UserAccount } from "../../../domain/User.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 const OPERATION = "findOrganizationUser";
 

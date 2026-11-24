@@ -1,10 +1,10 @@
-import { HttpMethod, type IHttpRequest } from "../../clients/http-client";
-import { UpstreamResponseError } from "../../errors/infra-error";
-import type { IClientResponse } from "../../interfaces/client-response";
-import type { IHttpClient } from "../../interfaces/IHttpClient";
-import { isUnavailable } from "../../lib/upstream";
-import { type ISessionTokens, LoginResponse } from "./responses/login.response";
-import { TransicionaisUrlCollection } from "./url-collection";
+import { HttpMethod, type IHttpRequest } from "../../clients/http-client.js";
+import { UpstreamResponseError } from "../../errors/infra-error.js";
+import type { IClientResponse } from "../../interfaces/client-response.js";
+import type { IHttpClient } from "../../interfaces/IHttpClient.js";
+import { isUnavailable } from "../../lib/upstream.js";
+import { type ISessionTokens, LoginResponse } from "./responses/login.response.js";
+import { TransicionaisUrlCollection } from "./url-collection.js";
 
 // login que não chegou a uma resposta útil (rede, timeout, 429, 5xx): o repo trata como "fora do ar"
 interface ISessionTokensResult {

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { InfraSource } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
+import { InfraSource } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
 
 // resposta do POST auth/login e do POST auth/refresh-token (o mesmo formato)
 const LoginSchema = z.object({

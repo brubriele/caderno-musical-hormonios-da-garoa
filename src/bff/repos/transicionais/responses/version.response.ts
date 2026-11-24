@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { InfraSource } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
+import { InfraSource } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
 
 // resposta das escritas em v2/manager-events/details/*: a version nova do encontro
 const VersionSchema = z.object({ version: z.number().int() });

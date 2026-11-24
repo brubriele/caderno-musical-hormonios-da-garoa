@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { EventVisibility } from "../../../domain/Event";
-import { parseResponse } from "../../parse-response";
-import { EventDayResponse, EventDaySchema } from "./event-day.response";
-import { TransicionaisIdSchema } from "../transicionais-id";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { EventVisibility } from "../../../domain/Event.js";
+import { parseResponse } from "../../parse-response.js";
+import { EventDayResponse, EventDaySchema } from "./event-day.response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 const OPERATION = "findEventDetails";
 

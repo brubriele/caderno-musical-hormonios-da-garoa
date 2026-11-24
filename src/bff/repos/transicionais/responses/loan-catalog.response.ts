@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { TransicionaisIdSchema } from "../transicionais-id";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 const OPERATION = "findLoanCatalog";
 
