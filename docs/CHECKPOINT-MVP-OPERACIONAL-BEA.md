@@ -202,3 +202,12 @@ Caderno Musical:
 3. Aplicar migrations em banco de teste (v1/v2/v3 ou somente as ausentes).
 4. Executar os cenários de teste e corrigir eventuais incompatibilidades.
 5. Não mesclar em main nem alterar Bea/produção sem revisão e autorização.
+
+
+## Atualização de validação do build (24/11/2026)
+- Deployment `dpl_7mWGefP3kQM65Ksj9TV7VYT4fLmt` chegou a `READY`.
+- URL testável de interface: https://hormonios-caderno-musical-d8ur0rhfx-brubrieletools-3860.vercel.app/ensaios.html
+- Commit implantado: `b1c855aa5c0b1d1b14da0ff9232ef882c2847f0d`.
+- Logs confirmam execução de `npm run typecheck` sem erros, seguida da compilação Vite.
+- Após isso, houve commits apenas de documentação (checkpoint/README); o deployment mais recente para esses commits estava em fila no momento da atualização. A branch URL continua sendo o endereço estável para o Preview.
+- READY comprova build/deploy, não comprova conexão com o Supabase Bea: as variáveis de homologação ainda não estão configuradas.
