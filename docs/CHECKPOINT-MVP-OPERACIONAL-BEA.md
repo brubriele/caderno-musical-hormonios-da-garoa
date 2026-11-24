@@ -211,3 +211,103 @@ Caderno Musical:
 - Logs confirmam execução de `npm run typecheck` sem erros, seguida da compilação Vite.
 - Após isso, houve commits apenas de documentação (checkpoint/README); o deployment mais recente para esses commits estava em fila no momento da atualização. A branch URL continua sendo o endereço estável para o Preview.
 - READY comprova build/deploy, não comprova conexão com o Supabase Bea: as variáveis de homologação ainda não estão configuradas.
+
+
+---
+
+# CHECKPOINT — revisão do acesso Produção e DoD compartilhável (24/11/2026)
+
+## Incidente reportado
+O front da página `/ensaios.html` renderizava corretamente, mas ao clicar em **Produção** a interface parecia não responder. No Network, o navegador mostrava a chamada protegida `GET /api/admin/ensaio?posicao=atual` (a query é `posicao`, sem acento).
+
+## Causa identificada
+O handler do botão chamava `setPanel("admin")`, que disparava `loadAdmin()` imediatamente. O painel consultava o endpoint administrativo protegido antes de solicitar a senha. O modal de login só era aberto depois de receber uma resposta `401 UNAUTHORIZED_ERROR`. Quando a API retornava outro erro (por exemplo, secrets BFF ausentes no Preview) ou a resposta demorava, o clique parecia não fazer nada e a pessoa não chegava ao formulário de acesso.
+
+## Correção aplicada
+Commit: `abc9b5011c079bb1d28c024e636030fc7a9a6e1a`
+- `openAdmin()` agora abre o modal de senha imediatamente e não dispara uma chamada administrativa antes do login.
+- Após o servidor aceitar `POST /api/admin/entrar` e emitir o cookie `hg_admin`, o front fecha o modal e chama `setPanel("admin")`.
+- A consulta `GET /api/admin/ensaio?posicao=atual` passa a ocorrer somente depois do login bem-sucedido.
+- A senha continua sendo enviada apenas no POST HTTPS e não é armazenada no browser.
+- O endpoint GET continua protegido por `requireAdmin`; a correção não remove nem enfraquece a proteção.
+
+## Estado de deploy
+- Branch: `feat/mvp-operacional-bea`.
+- Commit: `abc9b5011c079bb1d28c024e636030fc7a9a6e1a`.
+- Deployment Preview: `dpl_7rcKp57AHobcSNz2pXcxWxJJP3eY`.
+- URL específica: https://hormonios-caderno-musical-rcd7s00pg-brubrieletools-3860.vercel.app/ensaios.html
+- URL estável da branch: https://hormonios-caderno-musical-git-feat-m-0013ca-brubrieletools-3860.vercel.app/ensaios.html
+- No último polling, deployment estava BUILDING, com `npm run typecheck` iniciado e sem erro reportado até aquele momento. Confirmar READY antes de compartilhar como deploy concluído.
+- Warning npm observado: configuração desconhecida `cache-dir` e script de instalação do esbuild não aprovado. Não foi apresentado como erro de TypeScript.
+
+## Definition of Done (DoD) — MVP de Ensaios & instrumentos
+
+### A. Entrega técnica / repositório
+- [x] Trabalho isolado na branch `feat/mvp-operacional-bea`.
+- [x] Código T8/T9 da Bea incorporado/adaptado no repositório do Caderno, sem modificar o repositório operacional Bea.
+- [x] Contratos de API e BFF integrados à interface de Ensaios.
+- [x] Build exige typecheck (`npm run typecheck && vite build`).
+- [x] Login da produção corrigido para abrir antes de chamar endpoint protegido.
+- [x] Documentação e checkpoint versionados.
+- [ ] Confirmar deployment mais recente em READY após o commit `abc9b50`.
+- [ ] Bea/Rafa revisarem contrato e comportamento antes de qualquer merge.
+
+### B. Participante — presença e reserva
+- [x] Identificação operacional sem Google, via cookies `hg_device`/`hg_user` e dados informados no formulário.
+- [x] Confirmação “Vou” e “Não vou”.
+- [x] Fluxo “Vou” avança para escolha de instrumento.
+- [x] Consulta de Minha reserva.
+- [x] Escolha de instrumento e acessórios.
+- [x] Atualização/desfazer instrumento e cancelamento da própria presença via contrato T8/T9.
+- [ ] Validar ponta a ponta com Supabase Bea de homologação configurado.
+- [ ] Validar persistência após reload, concorrência/estoque e conflitos de reserva.
+- [ ] Confirmar conteúdo/semântica de identificação por cookie com Bea/Rafa.
+
+### C. Produção — gestão e acesso
+- [x] Botão Produção abre formulário de senha imediatamente (correção atual).
+- [x] POST de autenticação com `ADMIN_KEY`.
+- [x] Cookie de sessão HMAC `hg_admin`, HttpOnly/Secure/SameSite=Lax, 12h.
+- [x] Rotas administrativas protegidas por `requireAdmin`.
+- [x] Painel atual/próximo, presenças e reservas.
+- [x] Alteração de data/horário/local e criação do próximo ensaio.
+- [x] Abertura/fechamento de reservas.
+- [x] Ajuste de estoque e avanço do ensaio.
+- [x] Logout administrativo.
+- [ ] Testar login válido/inválido, cookie, reload, expiração, 401 e logout com secrets configuradas.
+- [ ] Testar todas as mutações de gestão em banco de homologação.
+- [ ] Avaliar com Bea/Rafa se a produção precisa cancelar a presença de terceiros; API atual não oferece essa ação administrativa específica.
+
+### D. Dados e segurança
+- [x] Base operacional Bea separada do Supabase Caderno Musical.
+- [x] BFF usa service role apenas no servidor.
+- [x] Secrets não são versionadas; `.env.local` ignorado pelo Git.
+- [x] Transicionais desligado no piloto inicial.
+- [ ] Provisionar Supabase Bea de homologação (não produção).
+- [ ] Configurar `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `ADMIN_KEY`, `COOKIE_KEY` no Preview da branch e local.
+- [ ] Conferir histórico e aplicar migrations v1/v2/v3 somente no banco de homologação.
+- [ ] Validar backup/rollback e isolamento de dados antes de convidar participantes.
+- [ ] Não habilitar Transicionais até etapa e aprovação próprias.
+
+### E. Caderno Musical
+- [x] Google OAuth e cadastro de contribuições permanecem no Supabase do Caderno.
+- [x] Nenhuma migração de músicas/contribuições para a base Bea.
+- [x] Nenhum SSO declarado: a sessão de Ensaios não autentica no Caderno.
+- [ ] Testar separadamente login e contribuição musical após o deploy, sem misturar dados operacionais.
+
+## O que pode ser dito neste momento
+A interface e a integração de código estão implementadas na branch paralela; o login de Produção recebeu correção para abrir o modal imediatamente. Ainda não declarar o MVP como operacional/liberado ao grupo, pois falta validar o backend com banco Bea de homologação e secrets, além dos testes ponta a ponta. Build READY valida a publicação do código, não a persistência operacional.
+
+## Próximas ações na retomada
+1. Confirmar READY do deployment `dpl_7rcKp57AHobcSNz2pXcxWxJJP3eY`.
+2. Testar no Preview o clique Produção: o modal deve abrir sem qualquer GET protegido antes do POST de login.
+3. Testar senha errada: mensagem de credencial inválida; senha correta sem secrets BFF deve mostrar erro de configuração/servidor, não ficar silencioso.
+4. Configurar secrets e banco Bea de homologação, aplicar migrations conferidas e repetir fluxo completo.
+5. Pedir revisão de Bea/Rafa e manter tudo em branch paralela até aceite.
+
+## Restrições
+- Não fazer merge em `main`.
+- Não alterar repositório operacional da Bea.
+- Não usar Supabase Caderno para dados de ensaio.
+- Não executar migrations em banco compartilhado/produção.
+- Não compartilhar senha ou secrets no chat.
+- Não afirmar que testes reais foram concluídos sem executá-los.
