@@ -1,4 +1,4 @@
-import type { Attendance } from "../../src/bff/domain/Attendance";
+import type { Attendance } from "../../src/bff/domain/Attendance.js";
 
 export class AttendanceResponse {
   static fromDomain(attendance: Attendance) {

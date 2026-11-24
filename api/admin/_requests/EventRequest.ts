@@ -1,12 +1,12 @@
-import type { Event, EventCatalogType } from "../../../src/bff/domain/Event";
+import type { Event, EventCatalogType } from "../../../src/bff/domain/Event.js";
 import {
   EventMapper,
   type IEventCatalogData,
   type IEventDescriptionData,
   type IEventGroupData,
   type IEventMetadataData,
-} from "../../../src/bff/domain/mappers/EventMapper";
-import { SyncStatus } from "../../../src/bff/domain/SyncStatus";
+} from "../../../src/bff/domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../../src/bff/domain/SyncStatus.js";
 
 export interface IEventRequestGroup {
   id: string;

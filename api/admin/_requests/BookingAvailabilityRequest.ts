@@ -1,6 +1,6 @@
-import { type Event, EventVisibility } from "../../../src/bff/domain/Event";
-import { EventMapper, type IEventMetadataData } from "../../../src/bff/domain/mappers/EventMapper";
-import { SyncStatus } from "../../../src/bff/domain/SyncStatus";
+import { type Event, EventVisibility } from "../../../src/bff/domain/Event.js";
+import { EventMapper, type IEventMetadataData } from "../../../src/bff/domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../../src/bff/domain/SyncStatus.js";
 
 export interface IBookingAvailabilityRequest {
   isActive: boolean;

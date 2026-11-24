@@ -1,5 +1,5 @@
-import type { User } from "../../src/bff/domain/User";
-import { AttendanceResponse } from "./AttendanceResponse";
+import type { User } from "../../src/bff/domain/User.js";
+import { AttendanceResponse } from "./AttendanceResponse.js";
 
 export class UserResponse {
   static fromDomain(user: User) {

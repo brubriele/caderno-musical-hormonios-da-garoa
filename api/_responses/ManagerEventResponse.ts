@@ -1,6 +1,6 @@
-import type { ManagerEvent } from "../../src/bff/domain/ManagerEvent";
-import { EventResponse } from "./EventResponse";
-import { UserResponse } from "./UserResponse";
+import type { ManagerEvent } from "../../src/bff/domain/ManagerEvent.js";
+import { EventResponse } from "./EventResponse.js";
+import { UserResponse } from "./UserResponse.js";
 
 export class ManagerEventResponse {
   static fromDomain(managerEvent: ManagerEvent) {

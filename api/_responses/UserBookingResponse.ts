@@ -1,6 +1,6 @@
-import type { User } from "../../src/bff/domain/User";
-import { emailHash } from "../../src/bff/lib/hash";
-import { AttendanceResponse } from "./AttendanceResponse";
+import type { User } from "../../src/bff/domain/User.js";
+import { emailHash } from "../../src/bff/lib/hash.js";
+import { AttendanceResponse } from "./AttendanceResponse.js";
 
 export class UserBookingResponse {
   static fromDomain(user: User) {

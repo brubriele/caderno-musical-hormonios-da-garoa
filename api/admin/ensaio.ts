@@ -1,13 +1,13 @@
-import { EventPosition, FindingInternalFilter } from "../../src/bff/domain/FindingInternalFilter";
-import { Envolviment } from "../../src/bff/envolviment/Envolviment";
-import { requireAdmin } from "../../src/bff/http/admin-session";
-import { handle, readJson } from "../../src/bff/http/handle";
-import { CreatingInternalEventUsecase } from "../../src/bff/usecases/event/CreatingInternalEventUsecase";
-import { FindingInternalEventUsecase } from "../../src/bff/usecases/event/FindingInternalEventUsecase";
-import { UpdatingInternalEventUsecase } from "../../src/bff/usecases/event/UpdatingInternalEventUsecase";
-import { EventRequest, type IEventRequest } from "./_requests/EventRequest";
-import { EventResponse } from "../_responses/EventResponse";
-import { ManagerEventResponse } from "../_responses/ManagerEventResponse";
+import { EventPosition, FindingInternalFilter } from "../../src/bff/domain/FindingInternalFilter.js";
+import { Envolviment } from "../../src/bff/envolviment/Envolviment.js";
+import { requireAdmin } from "../../src/bff/http/admin-session.js";
+import { handle, readJson } from "../../src/bff/http/handle.js";
+import { CreatingInternalEventUsecase } from "../../src/bff/usecases/event/CreatingInternalEventUsecase.js";
+import { FindingInternalEventUsecase } from "../../src/bff/usecases/event/FindingInternalEventUsecase.js";
+import { UpdatingInternalEventUsecase } from "../../src/bff/usecases/event/UpdatingInternalEventUsecase.js";
+import { EventRequest, type IEventRequest } from "./_requests/EventRequest.js";
+import { EventResponse } from "../_responses/EventResponse.js";
+import { ManagerEventResponse } from "../_responses/ManagerEventResponse.js";
 
 // spec-8 D2
 const POSITIONS: Record<string, EventPosition> = {

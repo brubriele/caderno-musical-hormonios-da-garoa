@@ -1,8 +1,8 @@
-import { Envolviment } from "../../../src/bff/envolviment/Envolviment";
-import { requireAdmin } from "../../../src/bff/http/admin-session";
-import { handle } from "../../../src/bff/http/handle";
-import { ActiveNextEventUsecase } from "../../../src/bff/usecases/event/ActiveNextEventUsecase";
-import { EventResponse } from "../../_responses/EventResponse";
+import { Envolviment } from "../../../src/bff/envolviment/Envolviment.js";
+import { requireAdmin } from "../../../src/bff/http/admin-session.js";
+import { handle } from "../../../src/bff/http/handle.js";
+import { ActiveNextEventUsecase } from "../../../src/bff/usecases/event/ActiveNextEventUsecase.js";
+import { EventResponse } from "../../_responses/EventResponse.js";
 
 // spec-8 B3
 export const POST = handle(async (request) => {
