@@ -1,5 +1,5 @@
-import type { Attendance } from "./Attendance";
-import type { SyncStatus } from "./SyncStatus";
+import type { Attendance } from "./Attendance.js";
+import type { SyncStatus } from "./SyncStatus.js";
 
 // o contrato geral da pessoa que o Hormônios precisa. Na raiz, o que a tela usa
 export class User {

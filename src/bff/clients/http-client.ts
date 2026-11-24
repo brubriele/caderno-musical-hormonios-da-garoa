@@ -1,5 +1,5 @@
-import type { IClientResponse } from "../interfaces/client-response";
-import type { IHttpClient } from "../interfaces/IHttpClient";
+import type { IClientResponse } from "../interfaces/client-response.js";
+import type { IHttpClient } from "../interfaces/IHttpClient.js";
 
 export enum HttpMethod {
   Get = "GET",

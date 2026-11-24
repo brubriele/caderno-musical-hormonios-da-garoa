@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient as Sdk } from "@supabase/supabase-js";
-import type { IClientResponse } from "../interfaces/client-response";
+import type { IClientResponse } from "../interfaces/client-response.js";
 
 interface ISdkResult<T> {
   data: T | null;

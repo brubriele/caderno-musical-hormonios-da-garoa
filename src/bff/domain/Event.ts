@@ -1,5 +1,5 @@
-import { type Attendance, AttendanceAnswer } from "./Attendance";
-import { SyncStatus } from "./SyncStatus";
+import { type Attendance, AttendanceAnswer } from "./Attendance.js";
+import { SyncStatus } from "./SyncStatus.js";
 
 // D23
 export enum EventVisibility {

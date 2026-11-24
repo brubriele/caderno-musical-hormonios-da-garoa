@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { CountSchema, UuidSchema, validateSchema } from "../lib/schema";
+import { CountSchema, UuidSchema, validateSchema } from "../lib/schema.js";
 
 // spec-8 D2
 export enum EventPosition {

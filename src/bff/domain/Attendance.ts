@@ -1,5 +1,5 @@
-import type { EventCatalog, EventGroup, Event } from "./Event";
-import type { SyncStatus } from "./SyncStatus";
+import type { EventCatalog, EventGroup, Event } from "./Event.js";
+import type { SyncStatus } from "./SyncStatus.js";
 
 // a resposta da pessoa ao encontro
 export enum AttendanceAnswer {

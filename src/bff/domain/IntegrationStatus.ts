@@ -1,4 +1,4 @@
-import { SyncStatus } from "./SyncStatus";
+import { SyncStatus } from "./SyncStatus.js";
 
 export enum IntegrationEntity {
   Event = "EVENT",
