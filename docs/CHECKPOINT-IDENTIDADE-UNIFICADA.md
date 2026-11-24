@@ -18,6 +18,8 @@ Validar a experiência de navegação entre Caderno Musical e Ensaios & instrume
 
 ## O que foi feito
 
+11. Corrigido o fluxo de confirmação de presença: resposta “Vou ao ensaio” segue para a etapa 02 (Instrumentos); “Não vou conseguir ir” segue diretamente para Minha reserva. Após confirmar instrumento/acessórios, a pessoa segue para a etapa 03.
+
 1. Criada a branch `feat/identidade-unificada-preview` a partir de `feat/integracao-infra-bea`.
 2. Mantida a estrutura BFF/API da branch-base e seus arquivos de configuração/documentação.
 3. Reincorporada a interface demonstrativa de Ensaios da branch `feat/ensaios-presenca-instrumentos`.
@@ -87,6 +89,13 @@ Não usar Live Server nesta versão: o projeto usa Vite e inclui estrutura de AP
 
 ## Cenários de teste
 
+### Correção do fluxo de presença (commit `8d82f3a`)
+- Responder “Vou ao ensaio”: deve abrir a etapa 02 — Instrumentos.
+- Escolher instrumento/acessórios e confirmar: deve abrir a etapa 03 — Minha reserva.
+- Responder “Não vou conseguir ir”: deve abrir Minha reserva sem passar pela seleção de instrumento.
+- Confirmar que a resposta permanece apenas no estado local de demonstração.
+
+
 ### Navegação e header
 - Abrir Caderno: título ativo correto e link para Ensaios.
 - Ir para Ensaios: título ativo correto e breadcrumb de volta.
@@ -116,6 +125,13 @@ Não usar Live Server nesta versão: o projeto usa Vite e inclui estrutura de AP
 - Não tratar o status READY como prova de autenticação ou integração funcional.
 
 ## Próximas etapas recomendadas
+
+1. Validar no Preview a correção do fluxo de presença e os cenários de navegação descritos acima.
+2. Alinhar com Bea e Rafa o contrato de identidade e autorização antes de desenvolver login compartilhado.
+3. Validar com a equipe Bea os endpoints/contratos reais de presença, reserva e estoque, sem alterar sua implementação sem autorização.
+4. Implementar integração em ambiente de homologação com credenciais de teste, testes de autorização, duplicidade, concorrência de estoque, cancelamento e recuperação de sessão.
+5. Fazer revisão de segurança e aceite operacional antes de produção.
+
 
 1. Você explorar localmente e no Preview os cenários acima.
 2. Compartilhar Preview e documentação com Bea e Rafa.
