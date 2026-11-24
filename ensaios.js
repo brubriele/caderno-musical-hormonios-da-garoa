@@ -63,9 +63,14 @@ $("#presence-form").addEventListener("submit",e=>{
   }else{
     state.reservation={email,name,pronoun,answer,groupId:null,groupName:null,accessories:[],supportIds:[]};
   }
-  $("#presence-feedback").textContent="Resposta registrada nesta prévia. Nenhum dado foi enviado ao servidor.";
+  $("#presence-feedback").textContent=answer==="vou"
+    ?"Presença registrada nesta prévia. Agora escolha seu instrumento e os acessórios, se precisar. Nenhum dado foi enviado ao servidor."
+    :"Resposta registrada nesta prévia. Nenhum dado foi enviado ao servidor.";
   $("#presence-feedback").classList.remove("hidden","error");
-  renderMine();setPanel("mine");
+  renderMine();
+  // Quem confirmou presença segue para a etapa 02 (instrumentos).
+  // Quem não vai ao ensaio segue para o resumo, sem etapa de reserva.
+  setPanel(answer==="vou"?"instruments":"mine");
 });
 function renderMine(){
   const r=state.reservation;
