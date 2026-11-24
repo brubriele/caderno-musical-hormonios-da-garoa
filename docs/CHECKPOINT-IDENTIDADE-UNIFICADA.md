@@ -9,6 +9,9 @@ Atualizado em 24/11/2026.
 - Branch-base: `feat/integracao-infra-bea`
 - Preview Vercel: https://hormonios-caderno-musical-git-feat-i-52219f-brubrieletools-3860.vercel.app
 - URL de branch (alias do Preview mais recente): `https://hormonios-caderno-musical-git-feat-i-52219f-brubrieletools-3860.vercel.app`
+- Último deployment após correção do fluxo de presença: `dpl_HxzJdyS6MCJ2EfPGtgFx1gCrJP7M` — READY.
+- Commit publicado: `caa8f363e7c165e3f52b3bf8fa193954030f165f`.
+- URL direta do deployment: https://hormonios-caderno-musical-ey6i5nf1d-brubrieletools-3860.vercel.app
 - O Preview é atualizado automaticamente a cada push nesta branch.
 - Projeto Vercel: `hormonios-caderno-musical`
 
@@ -18,7 +21,8 @@ Validar a experiência de navegação entre Caderno Musical e Ensaios & instrume
 
 ## O que foi feito
 
-11. Corrigido o fluxo de confirmação de presença: resposta “Vou ao ensaio” segue para a etapa 02 (Instrumentos); “Não vou conseguir ir” segue diretamente para Minha reserva. Após confirmar instrumento/acessórios, a pessoa segue para a etapa 03.
+11. Corrigido o fluxo de confirmação de presença (commit `8d82f3a`): resposta “Vou ao ensaio” segue para a etapa 02 (Instrumentos); “Não vou conseguir ir” segue diretamente para Minha reserva. Após confirmar instrumento/acessórios, a pessoa segue para a etapa 03.
+12. Build Vite/Vercel validado após a correção: `dist/ensaios.html`, CSS e JS da área Ensaios gerados; deployment `dpl_HxzJdyS6MCJ2EfPGtgFx1gCrJP7M` READY.
 
 1. Criada a branch `feat/identidade-unificada-preview` a partir de `feat/integracao-infra-bea`.
 2. Mantida a estrutura BFF/API da branch-base e seus arquivos de configuração/documentação.
@@ -123,6 +127,12 @@ Não usar Live Server nesta versão: o projeto usa Vite e inclui estrutura de AP
 - Não enviar credenciais nem ativar BFF com secrets de produção.
 - Não executar migrations.
 - Não tratar o status READY como prova de autenticação ou integração funcional.
+
+## Estado dos itens de integração
+
+- Identidade unificada: ainda não implementada. Requer decisão e contrato com Bea/Rafa (issuer, subject estável, claims, perfis, autorização, renovação e logout).
+- Integração operacional de presença/reservas/estoque: ainda não implementada. A branch contém BFF/API importada, mas o fluxo demonstrativo não chama os endpoints. A API admin verificada exige cookie HMAC/ADMIN_KEY; não é login de participante. O Supabase Bea (`nrbvobwoghcyxqyrhtvw`) é diferente do Supabase Caderno (`zktyaimschssofjlwill`), e a documentação alerta para não misturar credenciais/modelos nem ativar sem adaptação.
+- Portanto, MVP de UX/demo está pronto para validação; MVP conectado e liberado para operação real ainda não está pronto.
 
 ## Próximas etapas recomendadas
 
