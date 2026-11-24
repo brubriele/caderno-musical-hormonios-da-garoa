@@ -2,7 +2,7 @@
 // JSON por registro (os logs da Vercel indexam os campos). Para trocar pelo pino, basta outra
 // implementação de Logger
 
-import type { AppError } from "../errors/app-error";
+import type { AppError } from "../errors/app-error.js";
 
 export enum LogLevel {
   Debug = "debug",

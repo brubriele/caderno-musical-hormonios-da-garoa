@@ -1,32 +1,32 @@
-import { SupabaseClient } from "../../clients/supabase-client";
-import type { Attendance } from "../../domain/Attendance";
-import type { Event } from "../../domain/Event";
-import { EventPosition, type FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import type { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import type { SyncStatus } from "../../domain/SyncStatus";
-import type { User } from "../../domain/User";
-import { type AppError, NotFoundError } from "../../errors/app-error";
-import { DatabaseError } from "../../errors/infra-error";
+import { SupabaseClient } from "../../clients/supabase-client.js";
+import type { Attendance } from "../../domain/Attendance.js";
+import type { Event } from "../../domain/Event.js";
+import { EventPosition, type FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import type { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import type { SyncStatus } from "../../domain/SyncStatus.js";
+import type { User } from "../../domain/User.js";
+import { type AppError, NotFoundError } from "../../errors/app-error.js";
+import { DatabaseError } from "../../errors/infra-error.js";
 import type {
   IFindAttendanceFilter,
   IFindEventFilter,
   IFindUserFilter,
   IHormoniosRepository,
-} from "../../interfaces/IHormoniosRepository";
-import { createLogger, LogContext } from "../../lib/logger";
-import { AttendanceRequest } from "./requests/AttendanceRequest";
-import { CurrentEventRequest } from "./requests/CurrentEventRequest";
-import { EventRequest } from "./requests/EventRequest";
-import { IntegrationStatusRequest } from "./requests/IntegrationStatusRequest";
-import { UpdateCurrentEventRequest } from "./requests/UpdateCurrentEventRequest";
-import { UserRequest } from "./requests/UserRequest";
-import { AttendanceResponse } from "./responses/AttendanceResponse";
-import { CurrentEventResponse } from "./responses/CurrentEventResponse";
-import { EventResponse } from "./responses/EventResponse";
-import { IntegrationStatusResponse } from "./responses/IntegrationStatusResponse";
-import { ManagerEventResponse } from "./responses/ManagerEventResponse";
-import { UserResponse } from "./responses/UserResponse";
+} from "../../interfaces/IHormoniosRepository.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { AttendanceRequest } from "./requests/AttendanceRequest.js";
+import { CurrentEventRequest } from "./requests/CurrentEventRequest.js";
+import { EventRequest } from "./requests/EventRequest.js";
+import { IntegrationStatusRequest } from "./requests/IntegrationStatusRequest.js";
+import { UpdateCurrentEventRequest } from "./requests/UpdateCurrentEventRequest.js";
+import { UserRequest } from "./requests/UserRequest.js";
+import { AttendanceResponse } from "./responses/AttendanceResponse.js";
+import { CurrentEventResponse } from "./responses/CurrentEventResponse.js";
+import { EventResponse } from "./responses/EventResponse.js";
+import { IntegrationStatusResponse } from "./responses/IntegrationStatusResponse.js";
+import { ManagerEventResponse } from "./responses/ManagerEventResponse.js";
+import { UserResponse } from "./responses/UserResponse.js";
 
 const logger = createLogger("HormoniosRepository", LogContext.HormoniosRepository);
 

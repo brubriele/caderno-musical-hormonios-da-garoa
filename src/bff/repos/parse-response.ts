@@ -1,6 +1,6 @@
 import type { z } from "zod";
-import { InvalidParameterError } from "../errors/app-error";
-import { type InfraSource, InvalidResponseError } from "../errors/infra-error";
+import { InvalidParameterError } from "../errors/app-error.js";
+import { type InfraSource, InvalidResponseError } from "../errors/infra-error.js";
 
 // valida a resposta de uma fonte pelo schema do response; fora do formato -> InvalidResponseError
 export function parseResponse<T extends z.ZodType>(

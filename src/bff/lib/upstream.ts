@@ -1,7 +1,7 @@
-import { ErrorCtx } from "../domain/IntegrationStatus";
-import { AppError } from "../errors/app-error";
-import { InfraError, UpstreamBadContractError, UpstreamResponseError } from "../errors/infra-error";
-import type { ITransicionaisErrorCause } from "../interfaces/transicionais";
+import { ErrorCtx } from "../domain/IntegrationStatus.js";
+import { AppError } from "../errors/app-error.js";
+import { InfraError, UpstreamBadContractError, UpstreamResponseError } from "../errors/infra-error.js";
+import type { ITransicionaisErrorCause } from "../interfaces/transicionais.js";
 
 // a fonte não chegou a responder: rede ou timeout (status 0), 429 ou 5xx. É "fora do ar", não recusa
 export function isUnavailable(status: number): boolean {

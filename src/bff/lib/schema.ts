@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { InvalidParameterError } from "../errors/app-error";
+import { InvalidParameterError } from "../errors/app-error.js";
 
 export const NonBlankSchema = z.string().trim().min(1);
 

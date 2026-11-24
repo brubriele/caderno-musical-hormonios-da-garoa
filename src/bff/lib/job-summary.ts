@@ -1,4 +1,4 @@
-import { SyncStatus } from "../domain/SyncStatus";
+import { SyncStatus } from "../domain/SyncStatus.js";
 
 // lib.md L10
 export function jobSummary(found: number, statuses: SyncStatus[]): Record<string, number> {
