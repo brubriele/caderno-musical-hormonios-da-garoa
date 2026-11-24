@@ -4,6 +4,9 @@ Aplicação principal do Caderno Musical, com uma prévia da área de Ensaios & 
 
 ## Estado desta branch
 
+Preview Vercel (READY): https://hormonios-caderno-musical-7ey6ov6sj-brubrieletools-3860.vercel.app
+
+
 - Branch: `feat/identidade-unificada-preview`
 - Objetivo: validar a experiência de duas áreas sob uma navegação comum e preparar a arquitetura de identidade unificada.
 - A autenticação central ainda **não está implementada**. O CTA de acesso da produção está desabilitado nesta prévia.
