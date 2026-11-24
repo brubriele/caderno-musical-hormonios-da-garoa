@@ -1,3 +1,4 @@
+import { NotFoundError } from "../src/bff/errors/app-error";
 import { Envolviment } from "../src/bff/envolviment/Envolviment";
 import { handle } from "../src/bff/http/handle";
 import { readUserId } from "../src/bff/http/user-cookie";
@@ -6,8 +7,10 @@ import { UserBookingResponse } from "./_responses/UserBookingResponse";
 
 export const GET = handle(async (request) => {
   const userId = readUserId(request);
-  const findingUserBookingUsecase = Envolviment.make<FindingUserBookingUsecase>(FindingUserBookingUsecase.token);
-  const user = await findingUserBookingUsecase.execute({ userId });
+  if (!userId) throw new NotFoundError("User Not Found");
 
-  return { body: UserBookingResponse.fromDomain(user) };
+  const findingUserBookingUsecase = Envolviment.make<FindingUserBookingUsecase>(FindingUserBookingUsecase.token);
+  const userBooking = await findingUserBookingUsecase.execute({ userId });
+
+  return { body: UserBookingResponse.fromDomain(userBooking.user) };
 });
