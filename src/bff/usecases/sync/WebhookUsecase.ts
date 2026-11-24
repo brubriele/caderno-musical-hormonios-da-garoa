@@ -1,14 +1,14 @@
 import { z } from "zod";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { Webhook, WebhookEntity, WebhookResult } from "../../domain/Webhook";
-import { AppError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { DateTimeSchema, NonBlankSchema, UuidSchema, validateSchema } from "../../lib/schema";
-import { AttendanceWebhookUsecase } from "./AttendanceWebhookUsecase";
-import { EventWebhookUsecase } from "./EventWebhookUsecase";
-import { UserWebhookUsecase } from "./UserWebhookUsecase";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { Webhook, WebhookEntity, WebhookResult } from "../../domain/Webhook.js";
+import { AppError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { DateTimeSchema, NonBlankSchema, UuidSchema, validateSchema } from "../../lib/schema.js";
+import { AttendanceWebhookUsecase } from "./AttendanceWebhookUsecase.js";
+import { EventWebhookUsecase } from "./EventWebhookUsecase.js";
+import { UserWebhookUsecase } from "./UserWebhookUsecase.js";
 
 const logger = createLogger("WebhookUsecase", LogContext.Sync);
 

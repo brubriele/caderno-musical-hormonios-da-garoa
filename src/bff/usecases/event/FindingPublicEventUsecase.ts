@@ -1,10 +1,10 @@
-import type { Attendance } from "../../domain/Attendance";
-import type { Event } from "../../domain/Event";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import { AppError } from "../../errors/app-error";
-import { createLogger, LogContext } from "../../lib/logger";
-import type { FindingInternalEventUsecase } from "./FindingInternalEventUsecase";
+import type { Attendance } from "../../domain/Attendance.js";
+import type { Event } from "../../domain/Event.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { AppError } from "../../errors/app-error.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import type { FindingInternalEventUsecase } from "./FindingInternalEventUsecase.js";
 
 const logger = createLogger("FindingPublicEventUsecase", LogContext.Event);
 

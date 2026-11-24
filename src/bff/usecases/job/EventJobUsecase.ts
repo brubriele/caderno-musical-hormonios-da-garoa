@@ -1,16 +1,16 @@
 import { z } from "zod";
-import type { Event } from "../../domain/Event";
-import { ErrorCtx, IntegrationEntity, type IntegrationStatus, MAX_ITEMS_PER_JOB } from "../../domain/IntegrationStatus";
-import { Job } from "../../domain/Job";
-import { EventMapper } from "../../domain/mappers/EventMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { AppError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { jobSummary } from "../../lib/job-summary";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { toErrorCtx } from "../../lib/upstream";
+import type { Event } from "../../domain/Event.js";
+import { ErrorCtx, IntegrationEntity, type IntegrationStatus, MAX_ITEMS_PER_JOB } from "../../domain/IntegrationStatus.js";
+import { Job } from "../../domain/Job.js";
+import { EventMapper } from "../../domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { AppError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { jobSummary } from "../../lib/job-summary.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { toErrorCtx } from "../../lib/upstream.js";
 
 const logger = createLogger("EventJobUsecase", LogContext.Job);
 

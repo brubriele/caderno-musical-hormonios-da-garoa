@@ -1,25 +1,25 @@
 import { z } from "zod";
-import type { Attendance } from "../../domain/Attendance";
-import { Event, type EventCatalog, type EventGroup, type EventMetadata } from "../../domain/Event";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus";
-import { ManagerEvent } from "../../domain/ManagerEvent";
-import { EventMapper, type IEventCatalogData, type IEventGroupData, type IEventMetadataData } from "../../domain/mappers/EventMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
+import type { Attendance } from "../../domain/Attendance.js";
+import { Event, type EventCatalog, type EventGroup, type EventMetadata } from "../../domain/Event.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus.js";
+import { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { EventMapper, type IEventCatalogData, type IEventGroupData, type IEventMetadataData } from "../../domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
 import {
   AppError,
   InvalidParameterError,
   NotFoundError,
   StockBelowReservationsError,
   UpstreamUnavailableError,
-} from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { toErrorCtx } from "../../lib/upstream";
-import { EventBodySchema } from "./CreatingInternalEventUsecase";
-import type { FindingInternalEventUsecase } from "./FindingInternalEventUsecase";
+} from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { toErrorCtx } from "../../lib/upstream.js";
+import { EventBodySchema } from "./CreatingInternalEventUsecase.js";
+import type { FindingInternalEventUsecase } from "./FindingInternalEventUsecase.js";
 
 const logger = createLogger("UpdatingInternalEventUsecase", LogContext.Event);
 

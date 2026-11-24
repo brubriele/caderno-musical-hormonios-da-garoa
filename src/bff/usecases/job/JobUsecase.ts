@@ -1,17 +1,17 @@
 import { z } from "zod";
-import type { Attendance } from "../../domain/Attendance";
-import type { Event } from "../../domain/Event";
-import { Job, JobEntity } from "../../domain/Job";
-import type { User } from "../../domain/User";
-import { AppError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { isTransicionaisEnabled } from "../../lib/upstream";
-import { validateSchema } from "../../lib/schema";
-import { AttendanceJobUsecase } from "./AttendanceJobUsecase";
-import { EventJobUsecase } from "./EventJobUsecase";
-import { UserJobUsecase } from "./UserJobUsecase";
+import type { Attendance } from "../../domain/Attendance.js";
+import type { Event } from "../../domain/Event.js";
+import { Job, JobEntity } from "../../domain/Job.js";
+import type { User } from "../../domain/User.js";
+import { AppError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { isTransicionaisEnabled } from "../../lib/upstream.js";
+import { validateSchema } from "../../lib/schema.js";
+import { AttendanceJobUsecase } from "./AttendanceJobUsecase.js";
+import { EventJobUsecase } from "./EventJobUsecase.js";
+import { UserJobUsecase } from "./UserJobUsecase.js";
 
 const logger = createLogger("JobUsecase", LogContext.Job);
 

@@ -1,14 +1,14 @@
 import { z } from "zod";
-import { UserMapper } from "../../domain/mappers/UserMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
-import type { User } from "../../domain/User";
-import { Webhook, WebhookResult } from "../../domain/Webhook";
-import { AppError, NotFoundError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { CreatingOrUpdateUserUsecase } from "../booking/CreatingOrUpdateUserUsecase";
+import { UserMapper } from "../../domain/mappers/UserMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import type { User } from "../../domain/User.js";
+import { Webhook, WebhookResult } from "../../domain/Webhook.js";
+import { AppError, NotFoundError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { CreatingOrUpdateUserUsecase } from "../booking/CreatingOrUpdateUserUsecase.js";
 
 const logger = createLogger("UserWebhookUsecase", LogContext.Sync);
 

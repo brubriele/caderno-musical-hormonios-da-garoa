@@ -1,15 +1,15 @@
 import { z } from "zod";
-import type { Event } from "../../domain/Event";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { Webhook, WebhookResult } from "../../domain/Webhook";
-import { AppError, NotFoundError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { CreatingInternalEventUsecase } from "../event/CreatingInternalEventUsecase";
-import { FindingInternalEventUsecase } from "../event/FindingInternalEventUsecase";
-import { UpdatingInternalEventUsecase } from "../event/UpdatingInternalEventUsecase";
+import type { Event } from "../../domain/Event.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { Webhook, WebhookResult } from "../../domain/Webhook.js";
+import { AppError, NotFoundError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { CreatingInternalEventUsecase } from "../event/CreatingInternalEventUsecase.js";
+import { FindingInternalEventUsecase } from "../event/FindingInternalEventUsecase.js";
+import { UpdatingInternalEventUsecase } from "../event/UpdatingInternalEventUsecase.js";
 
 const logger = createLogger("EventWebhookUsecase", LogContext.Sync);
 
