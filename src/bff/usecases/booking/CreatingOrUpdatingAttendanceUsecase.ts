@@ -1,14 +1,14 @@
 import { z } from "zod";
-import { type Attendance, AttendanceAnswer } from "../../domain/Attendance";
-import { type Event, EventCatalogType, type EventGroup } from "../../domain/Event";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus";
-import { AttendanceMapper, type IAttendanceData } from "../../domain/mappers/AttendanceMapper";
-import { type IUserData, UserMapper } from "../../domain/mappers/UserMapper";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import { SyncStatus } from "../../domain/SyncStatus";
-import type { User } from "../../domain/User";
-import { UserBooking } from "../../domain/UserBooking";
+import { type Attendance, AttendanceAnswer } from "../../domain/Attendance.js";
+import { type Event, EventCatalogType, type EventGroup } from "../../domain/Event.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus.js";
+import { AttendanceMapper, type IAttendanceData } from "../../domain/mappers/AttendanceMapper.js";
+import { type IUserData, UserMapper } from "../../domain/mappers/UserMapper.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import type { User } from "../../domain/User.js";
+import { UserBooking } from "../../domain/UserBooking.js";
 import {
   AccessorySoldOutError,
   AlreadyReservedError,
@@ -18,15 +18,15 @@ import {
   NotFoundError,
   SoldOutError,
   UpstreamUnavailableError,
-} from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { NonBlankSchema, UuidSchema, validateSchema } from "../../lib/schema";
-import { toErrorCtx } from "../../lib/upstream";
-import type { FindingInternalEventUsecase } from "../event/FindingInternalEventUsecase";
-import type { FindingUserBookingUsecase } from "./FindingUserBookingUsecase";
-import type { IdentifyingUserUsecase } from "./IdentifyingUserUsecase";
+} from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { NonBlankSchema, UuidSchema, validateSchema } from "../../lib/schema.js";
+import { toErrorCtx } from "../../lib/upstream.js";
+import type { FindingInternalEventUsecase } from "../event/FindingInternalEventUsecase.js";
+import type { FindingUserBookingUsecase } from "./FindingUserBookingUsecase.js";
+import type { IdentifyingUserUsecase } from "./IdentifyingUserUsecase.js";
 
 const logger = createLogger("CreatingOrUpdatingAttendanceUsecase", LogContext.Attendance);
 

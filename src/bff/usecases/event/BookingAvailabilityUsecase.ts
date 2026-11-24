@@ -1,11 +1,11 @@
 import { z } from "zod";
-import { Event } from "../../domain/Event";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import { AppError, NotFoundError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
+import { Event } from "../../domain/Event.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { AppError, NotFoundError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
 
 const logger = createLogger("BookingAvailabilityUsecase", LogContext.Event);
 

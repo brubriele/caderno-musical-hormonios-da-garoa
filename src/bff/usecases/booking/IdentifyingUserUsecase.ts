@@ -1,12 +1,12 @@
 import { z } from "zod";
-import { type IUserData, UserMapper } from "../../domain/mappers/UserMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { User } from "../../domain/User";
-import { AppError } from "../../errors/app-error";
-import { createLogger, LogContext } from "../../lib/logger";
-import { UuidSchema, validateSchema } from "../../lib/schema";
-import type { CreatingOrUpdateUserUsecase } from "./CreatingOrUpdateUserUsecase";
-import type { FindingUserUsecase } from "./FindingUserUsecase";
+import { type IUserData, UserMapper } from "../../domain/mappers/UserMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { User } from "../../domain/User.js";
+import { AppError } from "../../errors/app-error.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { UuidSchema, validateSchema } from "../../lib/schema.js";
+import type { CreatingOrUpdateUserUsecase } from "./CreatingOrUpdateUserUsecase.js";
+import type { FindingUserUsecase } from "./FindingUserUsecase.js";
 
 const logger = createLogger("IdentifyingUserUsecase", LogContext.User);
 

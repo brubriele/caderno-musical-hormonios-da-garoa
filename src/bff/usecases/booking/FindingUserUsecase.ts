@@ -1,12 +1,12 @@
 import { z } from "zod";
-import { UserMapper } from "../../domain/mappers/UserMapper";
-import type { User } from "../../domain/User";
-import { AppError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import { emailHash } from "../../lib/hash";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { type IdentifyingUserCommand, IdentifyingUserCommandSchema } from "./IdentifyingUserUsecase";
+import { UserMapper } from "../../domain/mappers/UserMapper.js";
+import type { User } from "../../domain/User.js";
+import { AppError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import { emailHash } from "../../lib/hash.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { type IdentifyingUserCommand, IdentifyingUserCommandSchema } from "./IdentifyingUserUsecase.js";
 
 const logger = createLogger("FindingUserUsecase", LogContext.User);
 

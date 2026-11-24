@@ -1,13 +1,13 @@
 import { z } from "zod";
-import type { Attendance } from "../../domain/Attendance";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import { ManagerEvent } from "../../domain/ManagerEvent";
-import { AppError, NotFoundError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { emptyState } from "../../repos/supabase/mock/emptyState";
-import type { CreatingInternalEventUsecase } from "./CreatingInternalEventUsecase";
+import type { Attendance } from "../../domain/Attendance.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { AppError, NotFoundError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { emptyState } from "../../repos/supabase/mock/emptyState.js";
+import type { CreatingInternalEventUsecase } from "./CreatingInternalEventUsecase.js";
 
 const logger = createLogger("FindingInternalEventUsecase", LogContext.Event);
 

@@ -1,16 +1,16 @@
 import { z } from "zod";
-import { Event, EventCatalogType, EventVisibility } from "../../domain/Event";
-import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import { EventMapper } from "../../domain/mappers/EventMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { AppError, NextEventExistsError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { CountSchema, NonBlankSchema, validateSchema } from "../../lib/schema";
-import { toErrorCtx } from "../../lib/upstream";
+import { Event, EventCatalogType, EventVisibility } from "../../domain/Event.js";
+import { ErrorCtx, IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import { EventMapper } from "../../domain/mappers/EventMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { AppError, NextEventExistsError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { CountSchema, NonBlankSchema, validateSchema } from "../../lib/schema.js";
+import { toErrorCtx } from "../../lib/upstream.js";
 
 const logger = createLogger("CreatingInternalEventUsecase", LogContext.Event);
 

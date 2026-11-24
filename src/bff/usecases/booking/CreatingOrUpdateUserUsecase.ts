@@ -1,14 +1,14 @@
 import { z } from "zod";
-import { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus";
-import { UserMapper } from "../../domain/mappers/UserMapper";
-import { SyncStatus } from "../../domain/SyncStatus";
-import { User } from "../../domain/User";
-import { AppError, UpstreamUnavailableError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../../interfaces/transicionais";
-import { createLogger, LogContext } from "../../lib/logger";
-import { validateSchema } from "../../lib/schema";
-import { toErrorCtx } from "../../lib/upstream";
+import { IntegrationEntity, IntegrationStatus } from "../../domain/IntegrationStatus.js";
+import { UserMapper } from "../../domain/mappers/UserMapper.js";
+import { SyncStatus } from "../../domain/SyncStatus.js";
+import { User } from "../../domain/User.js";
+import { AppError, UpstreamUnavailableError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../../interfaces/transicionais.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { validateSchema } from "../../lib/schema.js";
+import { toErrorCtx } from "../../lib/upstream.js";
 
 const logger = createLogger("CreatingOrUpdateUserUsecase", LogContext.User);
 

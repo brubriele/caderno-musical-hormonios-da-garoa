@@ -1,13 +1,13 @@
 import { z } from "zod";
-import type { Event } from "../../domain/Event";
-import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter";
-import type { ManagerEvent } from "../../domain/ManagerEvent";
-import type { User } from "../../domain/User";
-import { UserBooking } from "../../domain/UserBooking";
-import { AppError, NotFoundError } from "../../errors/app-error";
-import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository";
-import { createLogger, LogContext } from "../../lib/logger";
-import { UuidSchema, validateSchema } from "../../lib/schema";
+import type { Event } from "../../domain/Event.js";
+import { EventPosition, FindingInternalFilter } from "../../domain/FindingInternalFilter.js";
+import type { ManagerEvent } from "../../domain/ManagerEvent.js";
+import type { User } from "../../domain/User.js";
+import { UserBooking } from "../../domain/UserBooking.js";
+import { AppError, NotFoundError } from "../../errors/app-error.js";
+import type { IHormoniosRepository } from "../../interfaces/IHormoniosRepository.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { UuidSchema, validateSchema } from "../../lib/schema.js";
 
 const logger = createLogger("FindingUserBookingUsecase", LogContext.User);
 
