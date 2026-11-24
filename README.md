@@ -79,3 +79,8 @@ Esta branch não implementa a autenticação unificada nem ativa gravações ope
 - Não usar credenciais do Supabase Caderno para configurar o BFF da Bea.
 - Não executar migrations importadas no ambiente de produção.
 - Não fazer merge em `main` antes da validação dos cenários e revisão técnica.
+
+
+## Checkpoints
+
+- [MVP operacional com infraestrutura Bea](docs/CHECKPOINT-MVP-OPERACIONAL-BEA.md)
