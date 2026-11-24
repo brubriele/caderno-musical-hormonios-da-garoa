@@ -1,5 +1,5 @@
-import { AppError, InvalidParameterError } from "../errors/app-error";
-import { createLogger } from "../lib/logger";
+import { AppError, InvalidParameterError } from "../errors/app-error.js";
+import { createLogger } from "../lib/logger.js";
 
 const logger = createLogger("handle");
 

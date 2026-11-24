@@ -1,10 +1,10 @@
-import type { Attendance } from "../domain/Attendance";
-import type { Event } from "../domain/Event";
-import type { FindingInternalFilter } from "../domain/FindingInternalFilter";
-import type { IntegrationEntity, IntegrationStatus } from "../domain/IntegrationStatus";
-import type { ManagerEvent } from "../domain/ManagerEvent";
-import type { SyncStatus } from "../domain/SyncStatus";
-import type { User } from "../domain/User";
+import type { Attendance } from "../domain/Attendance.js";
+import type { Event } from "../domain/Event.js";
+import type { FindingInternalFilter } from "../domain/FindingInternalFilter.js";
+import type { IntegrationEntity, IntegrationStatus } from "../domain/IntegrationStatus.js";
+import type { ManagerEvent } from "../domain/ManagerEvent.js";
+import type { SyncStatus } from "../domain/SyncStatus.js";
+import type { User } from "../domain/User.js";
 
 // um get por entidade, com filtro nomeado: o primeiro campo preenchido decide a busca
 export interface IFindEventFilter {

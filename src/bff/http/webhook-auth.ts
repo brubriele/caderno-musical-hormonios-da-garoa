@@ -1,5 +1,5 @@
-import { UnauthorizedError } from "../errors/app-error";
-import { digest } from "./cron-auth";
+import { UnauthorizedError } from "../errors/app-error.js";
+import { digest } from "./cron-auth.js";
 
 export async function requireWebhookKey(request: Request): Promise<void> {
   const key = process.env.WEBHOOK_API_KEY;

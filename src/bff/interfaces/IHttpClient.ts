@@ -1,5 +1,5 @@
-import type { IHttpRequest } from "../clients/http-client";
-import type { IClientResponse } from "./client-response";
+import type { IHttpRequest } from "../clients/http-client.js";
+import type { IClientResponse } from "./client-response.js";
 
 // K4
 export interface IHttpClient {

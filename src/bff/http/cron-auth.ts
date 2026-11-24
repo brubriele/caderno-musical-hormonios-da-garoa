@@ -1,4 +1,4 @@
-import { UnauthorizedError } from "../errors/app-error";
+import { UnauthorizedError } from "../errors/app-error.js";
 
 const encoder = new TextEncoder();
 

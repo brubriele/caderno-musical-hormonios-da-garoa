@@ -1,5 +1,5 @@
-import type { UUID } from "../interfaces/uuid";
-import { buildCookie, readCookie } from "./cookies";
+import type { UUID } from "../interfaces/uuid.js";
+import { buildCookie, readCookie } from "./cookies.js";
 
 const DEVICE_COOKIE = "hg_device";
 const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;

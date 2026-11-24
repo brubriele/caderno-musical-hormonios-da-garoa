@@ -1,6 +1,6 @@
-import type { Attendance } from "../domain/Attendance";
-import type { Event } from "../domain/Event";
-import type { User } from "../domain/User";
+import type { Attendance } from "../domain/Attendance.js";
+import type { Event } from "../domain/Event.js";
+import type { User } from "../domain/User.js";
 
 export interface ITransicionaisRepo {
   createEvent(event: Event): Promise<Event>;

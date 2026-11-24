@@ -1,4 +1,4 @@
-import { buildCookie, readCookie } from "./cookies";
+import { buildCookie, readCookie } from "./cookies.js";
 
 const USER_COOKIE = "hg_user";
 const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
