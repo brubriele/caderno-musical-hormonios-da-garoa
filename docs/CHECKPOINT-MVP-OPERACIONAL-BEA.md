@@ -105,3 +105,100 @@ O Vite `npm run dev` serve o front, mas não executa automaticamente as serverle
 ## Próxima ação para novo chat
 
 Retomar por este checkpoint. Primeiro revisar PR #22 completo e dependências/ancestrais; então propor integração em branch dedicada e mapear migrations e variáveis de homologação. Não alterar a implementação Bea, não executar migrations e não publicar operação real sem autorização explícita.
+
+
+---
+
+# Atualização do checkpoint — integração operacional na branch paralela (24/11/2026)
+
+## Branch e origem
+- Branch de trabalho: `feat/mvp-operacional-bea`
+- Criada a partir de `feat/identidade-unificada-preview`.
+- Repositório Caderno: https://github.com/brubriele/caderno-musical-hormonios-da-garoa
+- PR Bea de referência: https://github.com/brubriele/hormonios-garoa/pull/22 (T8/T9; ainda aberto, não mesclado no repositório Bea).
+- Commit de origem auditado: `6019853be05ff4a14d6366632b6d4e34c6b4ec78`.
+- O código Bea foi copiado/adaptado somente nesta branch. Nenhuma alteração foi feita no repositório operacional Bea.
+
+## Implementação incorporada
+- Importados contratos T8/T9 do BFF, usecases, domínio, repositório Supabase, responses e rotas de presença/ensaio/produção.
+- Importada a migration `v3__create_current_event.sql` e também incluídas v1/v2 para permitir preparar um banco de homologação novo.
+- Rotas operacionais: `GET /api/ensaio`, `GET /api/membros`, `POST/PATCH /api/membros/reservas`, `POST /api/admin/entrar`, `GET/POST/PUT /api/admin/ensaio`, `PUT /api/admin/reservas`, `POST /api/admin/ensaio/proximo`, `POST /api/admin/sair`.
+- Atualizado `GET /api/minhas-reservas` para o contrato T8/T9.
+- Removidos os endpoints antigos substituídos pelo PR: `api/reserva/index.ts` e `api/admin/novo-ensaio.ts`.
+- Front `ensaios.html/css/js` conectado aos endpoints: presença, escolha de instrumento/acessórios, Minha reserva, painel Produção, gestão de datas/ensaios, estoque, abertura/fechamento e avanço de ensaio.
+- O Caderno Musical e o cadastro de contribuições continuam no Supabase Caderno com o Google OAuth existente; não há SSO com a Bea.
+- Adicionado logout administrativo `POST /api/admin/sair`.
+- Build agora exige `npm run typecheck && vite build`.
+- Criado `.gitignore` para ignorar `.env.local`, `.env.*`, `.vercel`, dependências e artefatos.
+
+## Autenticação e limitações
+- Participantes: cookies `hg_device` e `hg_user`, sem login Google e sem verificação da titularidade do e-mail. É reconhecimento de aparelho/continuidade, não identidade forte.
+- Produção: `ADMIN_KEY` validada no servidor; cookie `hg_admin` assinado com HMAC usando `COOKIE_KEY`, HttpOnly/Secure/SameSite=Lax, 12h.
+- A senha admin é compartilhada e temporária, adequada apenas para piloto controlado.
+- O painel lista presença e reservas, gerencia ensaio e estoque; não há rota de admin para cancelar a presença de uma pessoa individual. A pessoa atualiza/cancela sua própria resposta.
+- Transicionais permanece desligado.
+- As bases seguem separadas: BFF exige `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` de um Supabase Bea de homologação. Nunca usar as variáveis `VITE_SUPABASE_*` do Caderno no BFF.
+
+## Migrations e ambiente
+Migrations incluídas:
+1. `supabase/migrations/v1__create_event.sql`
+2. `supabase/migrations/v2__create_integration_status.sql`
+3. `supabase/migrations/v3__create_current_event.sql`
+
+Nenhuma migration foi executada. Aplicar somente em Supabase de homologação dedicado e na ordem acima; conferir histórico antes de repetir. Não limpar/resetar banco compartilhado.
+
+Variáveis necessárias para homologação:
+```env
+SUPABASE_URL=https://<projeto-bea-homologacao>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=<service-role-de-homologacao>
+ADMIN_KEY=<senha-temporaria-forte>
+COOKIE_KEY=<segredo-aleatorio-forte>
+TRANSICIONAIS_ENABLED=false
+```
+Configurar local em `.env.local` (ignorado pelo Git) e na Vercel com target Preview e branch `feat/mvp-operacional-bea`.
+
+Estado de variáveis Vercel consultado: apenas `VITE_SUPABASE_URL` e `VITE_SUPABASE_PUBLISHABLE_KEY` estavam listadas com target Production. As variáveis BFF não estão configuradas para Preview. Assim, o código e a interface estão integrados, mas o backend ainda não poderá persistir/consultar dados até provisionar/configurar o banco de homologação e suas secrets.
+
+## Como rodar local
+```bash
+git switch feat/mvp-operacional-bea
+git pull origin feat/mvp-operacional-bea
+npm install
+npx vercel dev
+```
+Abrir a URL local exibida pela Vercel CLI e entrar em `/ensaios.html`. O comando `npm run dev` do Vite não executa funções serverless em `api/`; para testar a BFF local usar `vercel dev`.
+
+## Testes após configurar o banco
+Participante:
+- Confirmar “Vou ao ensaio” → etapa Instrumentos.
+- Reservar instrumento e acessórios.
+- Consultar Minha reserva após atualizar a página.
+- Atualizar escolha, desfazer instrumento mantendo presença, cancelar presença.
+- Testar estoque esgotado e reservas fechadas.
+
+Produção:
+- Senha incorreta e senha válida.
+- Consultar presenças/reservas.
+- Editar data/horário/local do ensaio atual.
+- Criar/editar próximo ensaio.
+- Abrir/fechar reservas.
+- Ajustar estoque respeitando reservas.
+- Encerrar ensaio e ativar próximo.
+- Logout e sessão expirada.
+
+Caderno Musical:
+- Testar Google OAuth e cadastro de contribuição separadamente.
+- Confirmar contribuições permanecem no Supabase Caderno; dados de ensaio/reserva ficam no Supabase Bea.
+
+## Build e Preview
+- Um deployment anterior `dpl_5cUrjVUBy72id44hKVM3vUrphSyh` chegou a READY, mas os logs mostraram erros TS no endpoint legado `api/minhas-reservas.ts`; ele foi corrigido.
+- Depois disso foi ativado typecheck obrigatório no script de build. Novo deployment foi iniciado após essa alteração; verificar seu resultado antes de considerar o build limpo.
+- Preview estável da branch: https://hormonios-caderno-musical-git-feat-m-0013ca-brubrieletools-3860.vercel.app
+- Deployment URL específico muda a cada build.
+
+## Próximas ações
+1. Verificar o resultado do último build/typecheck.
+2. Configurar Supabase Bea de homologação e secrets no Preview da branch.
+3. Aplicar migrations em banco de teste (v1/v2/v3 ou somente as ausentes).
+4. Executar os cenários de teste e corrigir eventuais incompatibilidades.
+5. Não mesclar em main nem alterar Bea/produção sem revisão e autorização.
