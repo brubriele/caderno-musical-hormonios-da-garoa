@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { InfraSource } from "../../../errors/infra-error";
-import type { ITransicionaisErrorCause } from "../../../interfaces/transicionais";
-import { parseResponse } from "../../parse-response";
+import { InfraSource } from "../../../errors/infra-error.js";
+import type { ITransicionaisErrorCause } from "../../../interfaces/transicionais.js";
+import { parseResponse } from "../../parse-response.js";
 
 const OPERATION = "errorBody";
 

@@ -1,6 +1,6 @@
-import { UserMapper } from "../../../domain/mappers/UserMapper";
-import type { User } from "../../../domain/User";
-import { OrganizationUserResponse } from "./organization-user.response";
+import { UserMapper } from "../../../domain/mappers/UserMapper.js";
+import type { User } from "../../../domain/User.js";
+import { OrganizationUserResponse } from "./organization-user.response.js";
 
 const OPERATION = "registerGuest";
 

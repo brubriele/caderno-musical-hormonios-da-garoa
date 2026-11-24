@@ -1,5 +1,5 @@
-import type { Event, EventGroup, EventVisibility } from "../../../domain/Event";
-import { numericId } from "../transicionais-id";
+import type { Event, EventGroup, EventVisibility } from "../../../domain/Event.js";
+import { numericId } from "../transicionais-id.js";
 
 export interface IGroupCapacityBody {
   groupId: number;

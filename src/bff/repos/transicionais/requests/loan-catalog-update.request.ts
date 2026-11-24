@@ -1,6 +1,6 @@
-import type { EventCatalog } from "../../../domain/Event";
-import type { ILoanCatalog, LoanCatalogKind } from "../responses/loan-catalog.response";
-import { numericId } from "../transicionais-id";
+import type { EventCatalog } from "../../../domain/Event.js";
+import type { ILoanCatalog, LoanCatalogKind } from "../responses/loan-catalog.response.js";
+import { numericId } from "../transicionais-id.js";
 
 // corpo do PUT v2/manager-support-types/{id} (LoanCatalogUpdateRequest): sempre inteiro, porque
 // groupIds omitido faria a assistência valer para a organização inteira (D26)

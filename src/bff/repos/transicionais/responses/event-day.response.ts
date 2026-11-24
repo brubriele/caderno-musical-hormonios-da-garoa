@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { TransicionaisIdSchema } from "../transicionais-id";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 // dia de GET v2/manager-events/details/{id}/config-day e de configDays no completo do encontro. Os
 // campos do calendário só voltam como vieram no PUT dos dias (D7)

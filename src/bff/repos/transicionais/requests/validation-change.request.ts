@@ -1,7 +1,7 @@
-import { type Attendance, AttendanceAnswer } from "../../../domain/Attendance";
-import { type Event, type EventGroup, EventCatalogType } from "../../../domain/Event";
-import type { UserAccount } from "../../../domain/User";
-import { numericId } from "../transicionais-id";
+import { type Attendance, AttendanceAnswer } from "../../../domain/Attendance.js";
+import { type Event, type EventGroup, EventCatalogType } from "../../../domain/Event.js";
+import type { UserAccount } from "../../../domain/User.js";
+import { numericId } from "../transicionais-id.js";
 
 // tipo da validação: o Hormônios só envia presença
 export enum ValidationType {

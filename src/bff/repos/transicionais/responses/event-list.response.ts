@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { InfraSource } from "../../../errors/infra-error";
-import type { IManagedEventItem } from "../../../interfaces/transicionais";
-import { parseResponse } from "../../parse-response";
-import { TransicionaisIdSchema } from "../transicionais-id";
+import { InfraSource } from "../../../errors/infra-error.js";
+import type { IManagedEventItem } from "../../../interfaces/transicionais.js";
+import { parseResponse } from "../../parse-response.js";
+import { TransicionaisIdSchema } from "../transicionais-id.js";
 
 const OPERATION = "listEvents";
 
