@@ -4,7 +4,7 @@ Aplicação principal do Caderno Musical, com uma prévia da área de Ensaios & 
 
 ## Estado desta branch
 
-Preview Vercel (READY): https://hormonios-caderno-musical-7ey6ov6sj-brubrieletools-3860.vercel.app
+Preview Vercel (READY): https://hormonios-caderno-musical-git-feat-i-52219f-brubrieletools-3860.vercel.app
 
 
 - Branch: `feat/identidade-unificada-preview`
