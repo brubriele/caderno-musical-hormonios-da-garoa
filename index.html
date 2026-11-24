@@ -66,82 +66,8 @@ async function loadPublishedSongs(){
     // Mantém a biblioteca de exemplo funcionando caso a conexão ainda não esteja pronta.
   }
 }
-const authBadge = document.getElementById('authbadge');
-const loginButton = document.getElementById('loginbutton');
-const logoutButton = document.getElementById('logoutbutton');
-const authMessage = document.getElementById('authmessage');
-const productionBadge = document.getElementById('productionbadge');
-const productionTools = document.getElementById('productiontools');
-
-function showSignedOut(){
-  authBadge.textContent = 'Não conectado';
-  loginButton.classList.remove('hidden');
-  logoutButton.classList.add('hidden');
-  productionBadge.textContent = 'Login necessário';
-  authMessage.textContent = 'Entre com Google para verificar se sua conta tem acesso à produção.';
-  productionTools.classList.add('hidden');
-}
-async function updateAuthUI(session){
-  const user = session?.user;
-  if (!user) { showSignedOut(); return; }
-  authBadge.textContent = user.email ? 'Conectado: ' + user.email : 'Conectado';
-  loginButton.classList.add('hidden');
-  logoutButton.classList.remove('hidden');
-  productionBadge.textContent = 'Verificando acesso…';
-  authMessage.textContent = 'Conta autenticada. Verificando permissão de produção…';
-  productionTools.classList.add('hidden');
-  try {
-    const { data, error } = await supabaseClient
-      .from('production_members')
-      .select('user_id')
-      .eq('user_id', user.id)
-      .maybeSingle();
-    if (error) throw error;
-    if (data) {
-      productionBadge.textContent = 'Acesso autorizado';
-      authMessage.textContent = 'Acesso de produção confirmado para esta conta.';
-      productionTools.classList.remove('hidden');
-    } else {
-      productionBadge.textContent = 'Somente leitura';
-      authMessage.textContent = 'Sua conta está autenticada, mas não consta como integrante da produção. Você pode consultar o conteúdo publicado, mas não tem acesso às ferramentas de produção.';
-      productionTools.classList.add('hidden');
-    }
-  } catch (error) {
-    console.error('Erro ao verificar permissão de produção:', error);
-    productionBadge.textContent = 'Não foi possível verificar';
-    authMessage.textContent = 'Não conseguimos verificar a permissão de produção. Confira o Console e as políticas RLS de production_members.';
-    productionTools.classList.add('hidden');
-  }
-}
-loginButton.addEventListener('click', async () => {
-  loginButton.disabled = true;
-  loginButton.textContent = 'Acesso em validação';
-  const { error } = await supabaseClient.auth.signInWithOAuth({
-    provider: 'google',
-    options: { redirectTo: window.location.href.split('#')[0] }
-  });
-  if (error) {
-    console.error('Erro ao iniciar login Google:', error);
-    authMessage.textContent = 'O acesso de produção será habilitado após a definição da autenticação central.';
-    loginButton.disabled = false;
-    loginButton.textContent = 'Acesso da produção em validação';
-  }
-});
-logoutButton.addEventListener('click', async () => {
-  const { error } = await supabaseClient.auth.signOut();
-  if (error) console.error('Erro ao sair:', error);
-  showSignedOut();
-});
-supabaseClient.auth.onAuthStateChange((_event, session) => {
-  // Evita operações demoradas diretamente dentro do callback do Auth.
-  setTimeout(() => updateAuthUI(session), 0);
-});
-(async () => {
-  const { data, error } = await supabaseClient.auth.getSession();
-  if (error) console.error('Erro ao recuperar sessão:', error);
-  await updateAuthUI(data?.session || null);
-})();
-
+// Nesta prévia, o fluxo de autenticação do Supabase Caderno fica deliberadamente inativo.
+// O acesso será reintroduzido quando o contrato de identidade central da Bea for validado.
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderSongs(){let q=document.getElementById('search').value.toLowerCase();let filtered=songs.filter(s=>(s.title+' '+s.artist+' '+s.items.map(i=>i.naip+' '+i.text).join(' ')).toLowerCase().includes(q));document.getElementById('songcount').textContent=filtered.length+' registros';document.getElementById('songlist').innerHTML=filtered.map(s=>'<article class="song"><div class="song-top"><div><h3>'+esc(s.title)+'</h3><div class="meta">'+esc(s.artist)+' · ID '+esc(s.id)+'</div></div><span class="tag">'+s.items.length+' contribuição(ões)</span></div>'+s.items.map(i=>'<div><span class="tag">'+esc(i.naip)+'</span><span class="tag">'+esc(i.kind)+'</span><div class="notation">'+esc(i.text)+'</div></div>').join('')+'<div class="meta" style="margin-top:10px">Métrica, andamento e acentuação: a confirmar com o naipe.</div></article>').join('')||'<p>Nenhuma música encontrada.</p>';renderNaipes()}
 function renderNaipes(){let n=document.getElementById('naipeselect').value;let found=songs.flatMap(s=>s.items.filter(i=>i.naip===n).map(i=>({s,i})));document.getElementById('naiperesults').innerHTML=found.map(({s,i})=>'<article class="song"><h3>'+esc(s.title)+'</h3><div class="meta">ID '+esc(s.id)+' · '+esc(i.kind)+'</div><div class="notation">'+esc(i.text)+'</div></article>').join('')||'<p>Não há contribuições de exemplo para este naipe ainda.</p>'}
