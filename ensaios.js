@@ -321,7 +321,9 @@ function openAdminLogin() {
   if (dialog && !dialog.open) dialog.showModal();
 }
 function openAdmin() {
-  setPanel("admin");
+  // Solicita a credencial antes de chamar qualquer endpoint protegido.
+  // Assim, o clique sempre produz uma resposta visível, mesmo sem sessão ativa.
+  openAdminLogin();
 }
 async function adminLogin(event) {
   event.preventDefault();
@@ -341,7 +343,9 @@ async function adminLogin(event) {
     $("#admin-login-feedback").classList.add("hidden");
     $("#admin-login-dialog").close();
     state.adminLocked = false;
-    await loadAdmin();
+    // Só abre a área de gestão depois que o servidor confirmou a senha.
+    // setPanel também inicia a consulta autenticada do ensaio atual.
+    setPanel("admin");
   });
 }
 async function loadAdmin() {
