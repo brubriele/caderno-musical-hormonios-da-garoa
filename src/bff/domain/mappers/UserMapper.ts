@@ -1,6 +1,6 @@
-import type { Attendance } from "../Attendance";
-import type { SyncStatus } from "../SyncStatus";
-import { User, UserAccount, UserAccountPendingStep, UserMetadata } from "../User";
+import type { Attendance } from "../Attendance.js";
+import type { SyncStatus } from "../SyncStatus.js";
+import { User, UserAccount, UserAccountPendingStep, UserMetadata } from "../User.js";
 
 export interface IUserAccountPendingStepData {
   name: string;

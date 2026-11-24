@@ -1,25 +1,25 @@
-import { FakeHttpClient } from "../clients/FakeHttpClient";
-import { HttpClient } from "../clients/http-client";
-import { SupabaseClient } from "../clients/supabase-client";
-import type { IHormoniosRepository } from "../interfaces/IHormoniosRepository";
-import type { ITransicionaisRepo } from "../interfaces/transicionais";
-import { isTransicionaisEnabled } from "../lib/upstream";
-import { HormoniosRepository } from "../repos/supabase/HormoniosRepository";
-import { TransicionaisRepo } from "../repos/transicionais/repo";
-import { TransicionaisSession } from "../repos/transicionais/session";
-import { CreatingOrUpdateUserUsecase } from "../usecases/booking/CreatingOrUpdateUserUsecase";
-import { CreatingOrUpdatingAttendanceUsecase } from "../usecases/booking/CreatingOrUpdatingAttendanceUsecase";
-import { FindingUserBookingUsecase } from "../usecases/booking/FindingUserBookingUsecase";
-import { FindingUserUsecase } from "../usecases/booking/FindingUserUsecase";
-import { IdentifyingUserUsecase } from "../usecases/booking/IdentifyingUserUsecase";
-import { ActiveNextEventUsecase } from "../usecases/event/ActiveNextEventUsecase";
-import { BookingAvailabilityUsecase } from "../usecases/event/BookingAvailabilityUsecase";
-import { CreatingInternalEventUsecase } from "../usecases/event/CreatingInternalEventUsecase";
-import { FindingInternalEventUsecase } from "../usecases/event/FindingInternalEventUsecase";
-import { FindingPublicEventUsecase } from "../usecases/event/FindingPublicEventUsecase";
-import { UpdatingInternalEventUsecase } from "../usecases/event/UpdatingInternalEventUsecase";
-import { JobUsecase } from "../usecases/job/JobUsecase";
-import { WebhookUsecase } from "../usecases/sync/WebhookUsecase";
+import { FakeHttpClient } from "../clients/FakeHttpClient.js";
+import { HttpClient } from "../clients/http-client.js";
+import { SupabaseClient } from "../clients/supabase-client.js";
+import type { IHormoniosRepository } from "../interfaces/IHormoniosRepository.js";
+import type { ITransicionaisRepo } from "../interfaces/transicionais.js";
+import { isTransicionaisEnabled } from "../lib/upstream.js";
+import { HormoniosRepository } from "../repos/supabase/HormoniosRepository.js";
+import { TransicionaisRepo } from "../repos/transicionais/repo.js";
+import { TransicionaisSession } from "../repos/transicionais/session.js";
+import { CreatingOrUpdateUserUsecase } from "../usecases/booking/CreatingOrUpdateUserUsecase.js";
+import { CreatingOrUpdatingAttendanceUsecase } from "../usecases/booking/CreatingOrUpdatingAttendanceUsecase.js";
+import { FindingUserBookingUsecase } from "../usecases/booking/FindingUserBookingUsecase.js";
+import { FindingUserUsecase } from "../usecases/booking/FindingUserUsecase.js";
+import { IdentifyingUserUsecase } from "../usecases/booking/IdentifyingUserUsecase.js";
+import { ActiveNextEventUsecase } from "../usecases/event/ActiveNextEventUsecase.js";
+import { BookingAvailabilityUsecase } from "../usecases/event/BookingAvailabilityUsecase.js";
+import { CreatingInternalEventUsecase } from "../usecases/event/CreatingInternalEventUsecase.js";
+import { FindingInternalEventUsecase } from "../usecases/event/FindingInternalEventUsecase.js";
+import { FindingPublicEventUsecase } from "../usecases/event/FindingPublicEventUsecase.js";
+import { UpdatingInternalEventUsecase } from "../usecases/event/UpdatingInternalEventUsecase.js";
+import { JobUsecase } from "../usecases/job/JobUsecase.js";
+import { WebhookUsecase } from "../usecases/sync/WebhookUsecase.js";
 
 enum TransicionaisState {
   On = "on",

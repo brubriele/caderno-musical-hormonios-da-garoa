@@ -1,5 +1,5 @@
-import { UnauthorizedError } from "../errors/app-error";
-import { buildCookie, readCookie } from "./cookies";
+import { UnauthorizedError } from "../errors/app-error.js";
+import { buildCookie, readCookie } from "./cookies.js";
 
 const ADMIN_COOKIE = "hg_admin";
 const TWELVE_HOURS_SECONDS = 60 * 60 * 12;

@@ -1,7 +1,7 @@
-import { InvalidCacheStateError } from "../../errors/app-error";
-import { Attendance, type AttendanceAnswer, AttendanceMetadata } from "../Attendance";
-import type { Event, EventCatalog, EventGroup } from "../Event";
-import type { SyncStatus } from "../SyncStatus";
+import { InvalidCacheStateError } from "../../errors/app-error.js";
+import { Attendance, type AttendanceAnswer, AttendanceMetadata } from "../Attendance.js";
+import type { Event, EventCatalog, EventGroup } from "../Event.js";
+import type { SyncStatus } from "../SyncStatus.js";
 
 export interface IAttendanceMetadataData {
   userId: string;

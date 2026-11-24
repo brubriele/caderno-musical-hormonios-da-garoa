@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { validateSchema } from "../lib/schema";
-import { ManagerEvent } from "./ManagerEvent";
-import { User } from "./User";
+import { validateSchema } from "../lib/schema.js";
+import { ManagerEvent } from "./ManagerEvent.js";
+import { User } from "./User.js";
 
 const UserBookingSchema = z.object({
   managerEvent: z.instanceof(ManagerEvent),

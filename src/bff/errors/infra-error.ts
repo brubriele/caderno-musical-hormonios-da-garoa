@@ -1,6 +1,6 @@
 import type { ZodError } from "zod";
-import type { ITransicionaisErrorCause } from "../interfaces/transicionais";
-import { InvalidParameterError } from "./app-error";
+import type { ITransicionaisErrorCause } from "../interfaces/transicionais.js";
+import { InvalidParameterError } from "./app-error.js";
 
 // falha de uma fonte (Supabase, Transicionais). Não é AppError: a rota responde 500 INTERNAL_ERROR
 // (E5). A key separa a falha da fonte de um bug (Error sem key) no log

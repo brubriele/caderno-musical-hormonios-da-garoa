@@ -9,8 +9,8 @@ import {
   EventGroupMetadata,
   EventMetadata,
   type EventVisibility,
-} from "../Event";
-import type { SyncStatus } from "../SyncStatus";
+} from "../Event.js";
+import type { SyncStatus } from "../SyncStatus.js";
 
 export interface IEventGroupMetadataData {
   active: boolean;

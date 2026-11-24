@@ -1,4 +1,4 @@
-import type { SyncStatus } from "./SyncStatus";
+import type { SyncStatus } from "./SyncStatus.js";
 
 export enum WebhookEntity {
   Event = "event",
