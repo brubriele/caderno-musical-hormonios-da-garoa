@@ -11,9 +11,9 @@
 <div class="shell">
   <header class="topbar">
     <div class="brand current-area"><span class="brand-kicker">Hormônios da Garoa</span><strong>Ensaios & instrumentos</strong></div>
-    <div class="top-actions"><span class="status-pill">Presença · reservas</span><a class="back-link" href="/">← Caderno Musical</a></div>
+    <div class="top-actions"><span class="status-pill">Presença · reservas</span><button type="button" class="admin-entry" id="open-admin">Produção</button><a class="back-link" href="/">← Caderno Musical</a></div>
   </header>
-  <div class="preview-banner"><strong>PRÉVIA DE INTERFACE</strong><span>Dados ilustrativos. Nenhuma presença ou reserva será enviada nesta versão.</span></div>
+  <div class="preview-banner"><strong>MVP · GRUPO DE TESTE</strong><span>Presenças e reservas serão gravadas no ambiente de homologação configurado.</span></div>
   <main>
     <section class="hero">
       <div class="hero-copy">
@@ -52,7 +52,7 @@
             <label class="choice"><input type="radio" name="answer" value="nao-vou"><span><strong>Não vou conseguir ir</strong><small>Registre minha resposta para a produção.</small></span></label>
           </fieldset>
           <button class="primary-btn" type="submit">Registrar resposta <span>→</span></button>
-          <p class="form-note">No sistema final, seu aparelho será reconhecido por um cookie seguro para consultar e atualizar sua reserva.</p>
+          <p class="form-note">Seu aparelho será reconhecido por um cookie para consultar e atualizar sua reserva. Não é necessário criar senha.</p>
           <div class="feedback hidden" id="presence-feedback" role="status"></div>
         </form>
         <aside class="info-column">
@@ -70,6 +70,11 @@
       <div class="inventory-note">A disponibilidade será calculada pelo backend a partir do estoque e das reservas ativas do ensaio.</div>
     </section>
 
+    <section class="panel" id="admin">
+      <div class="section-heading"><div><p class="eyebrow">PRODUÇÃO / ACESSO RESTRITO</p><h2>Gestão<br><em>do ensaio.</em></h2></div><p class="section-description">Visão de presenças, reservas e disponibilidade. O acesso é protegido pela chave administrativa configurada no servidor.</p></div>
+      <div id="admin-content"><div class="empty-state">Entre com a senha da Produção para consultar o ensaio.</div></div>
+    </section>
+
     <section class="panel" id="mine">
       <div class="section-heading"><div><p class="eyebrow">03 / SUA PARTICIPAÇÃO</p><h2>Minha<br><em>reserva.</em></h2></div><p class="section-description">Consulte a resposta e o instrumento associados ao aparelho que você usou para reservar.</p></div>
       <div id="my-reservation" class="my-reservation"><div class="empty-state">Você ainda não registrou uma reserva nesta prévia. Preencha a confirmação de presença para experimentar o fluxo.</div></div>
@@ -77,6 +82,18 @@
   </main>
   <footer class="footer"><div><strong>Hormônios da Garoa</strong><span>Caderno Musical · memória coletiva · ensaio</span></div><a href="/">Voltar ao repertório ↗</a></footer>
 </div>
+
+<dialog id="admin-login-dialog">
+  <form id="admin-login-form" class="dialog-card">
+    <button type="button" class="close-dialog" id="close-admin-login" aria-label="Fechar">×</button>
+    <p class="eyebrow">ÁREA RESTRITA / PRODUÇÃO</p>
+    <h2>Acesso<br><em>da produção.</em></h2>
+    <label>Senha administrativa<input id="admin-password" type="password" autocomplete="current-password" required></label>
+    <button class="primary-btn" type="submit">Entrar na produção <span>→</span></button>
+    <div id="admin-login-feedback" class="feedback hidden" role="alert"></div>
+  </form>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <dialog id="instrument-dialog">
   <form id="instrument-form" class="dialog-card">
