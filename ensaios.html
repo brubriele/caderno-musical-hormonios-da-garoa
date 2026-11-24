@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3ed">
+<title>Ensaios & instrumentos — Hormônios da Garoa</title>
+<link rel="stylesheet" href="/ensaios.css">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand current-area"><span class="brand-kicker">Hormônios da Garoa</span><strong>Ensaios & instrumentos</strong></div>
+    <div class="top-actions"><span class="status-pill">Presença · reservas</span><a class="back-link" href="/">← Caderno Musical</a></div>
+  </header>
+  <div class="preview-banner"><strong>PRÉVIA DE INTERFACE</strong><span>Dados ilustrativos. Nenhuma presença ou reserva será enviada nesta versão.</span></div>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ENSAIOS / HORMÔNIOS DA GAROA</p>
+        <h1>A gente se<br><em>encontra</em><br>no ensaio.</h1>
+        <p class="intro">Confirme sua presença e escolha o instrumento que quer tocar. Uma organização coletiva para chegar no ensaio sabendo quem vem e o que precisa.</p>
+      </div>
+      <aside class="event-card">
+        <div class="card-top"><span>PRÓXIMO ENSAIO</span><span class="open-tag">RESERVAS ABERTAS · DEMO</span></div>
+        <div class="event-date">Data a confirmar</div>
+        <div class="event-rule"></div>
+        <div class="event-details">
+          <div><small>HORÁRIO</small><strong>A definir</strong></div>
+          <div><small>LOCAL</small><strong>A confirmar</strong></div>
+        </div>
+        <div class="event-foot"><span id="attendance-count">—</span><span>confirmações no exemplo</span></div>
+      </aside>
+    </section>
+
+    <nav class="tabs" aria-label="Etapas do ensaio">
+      <button class="tab active" data-panel="presence"><span>01</span> Presença</button>
+      <button class="tab" data-panel="instruments"><span>02</span> Instrumentos</button>
+      <button class="tab" data-panel="mine"><span>03</span> Minha reserva</button>
+    </nav>
+
+    <section class="panel active" id="presence">
+      <div class="section-heading"><div><p class="eyebrow">01 / CONFIRMAÇÃO</p><h2>Você vem<br><em>com a gente?</em></h2></div><p class="section-description">A identificação é feita com nome, pronome e e-mail. Não é necessário criar senha ou entrar com Google para confirmar presença.</p></div>
+      <div class="two-col">
+        <form id="presence-form" class="form-card">
+          <div class="form-title"><span>SEUS DADOS</span><span class="step-mark">01—03</span></div>
+          <label>E-mail<input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required></label>
+          <label>Nome / Nome social<input id="name" name="name" autocomplete="name" placeholder="Como você quer ser chamado?" required></label>
+          <label>Pronome<input id="pronoun" name="pronoun" placeholder="ex.: ela/dela, ele/dele, elu/delu" required></label>
+          <fieldset><legend>SUA RESPOSTA</legend>
+            <label class="choice"><input type="radio" name="answer" value="vou" checked><span><strong>Vou ao ensaio</strong><small>Quero confirmar minha presença.</small></span></label>
+            <label class="choice"><input type="radio" name="answer" value="nao-vou"><span><strong>Não vou conseguir ir</strong><small>Registre minha resposta para a produção.</small></span></label>
+          </fieldset>
+          <button class="primary-btn" type="submit">Registrar resposta <span>→</span></button>
+          <p class="form-note">No sistema final, seu aparelho será reconhecido por um cookie seguro para consultar e atualizar sua reserva.</p>
+          <div class="feedback hidden" id="presence-feedback" role="status"></div>
+        </form>
+        <aside class="info-column">
+          <div class="info-card pink"><span class="number">01</span><h3>Uma resposta por pessoa</h3><p>Você pode atualizar sua confirmação. A resposta mais recente substitui a anterior.</p></div>
+          <div class="info-card cyan"><span class="number">02</span><h3>Com ou sem instrumento</h3><p>Você pode confirmar presença sem reservar instrumento e escolher depois, enquanto houver disponibilidade.</p></div>
+          <div class="info-card cream"><span class="number">03</span><h3>Nome e pronome importam</h3><p>Usamos as informações que você compartilha para organizar o ensaio com respeito.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel" id="instruments">
+      <div class="section-heading"><div><p class="eyebrow">02 / ESCOLHA DO NAIPE</p><h2>O que você<br><em>vai tocar?</em></h2></div><p class="section-description">Escolha um instrumento disponível. Os números abaixo são apenas exemplos de como a disponibilidade será apresentada.</p></div>
+      <div class="inventory-head"><span>INSTRUMENTO / NAIPE</span><span>DISPONIBILIDADE</span><span></span></div>
+      <div id="instrument-list" class="instrument-list"></div>
+      <div class="inventory-note">A disponibilidade será calculada pelo backend a partir do estoque e das reservas ativas do ensaio.</div>
+    </section>
+
+    <section class="panel" id="mine">
+      <div class="section-heading"><div><p class="eyebrow">03 / SUA PARTICIPAÇÃO</p><h2>Minha<br><em>reserva.</em></h2></div><p class="section-description">Consulte a resposta e o instrumento associados ao aparelho que você usou para reservar.</p></div>
+      <div id="my-reservation" class="my-reservation"><div class="empty-state">Você ainda não registrou uma reserva nesta prévia. Preencha a confirmação de presença para experimentar o fluxo.</div></div>
+    </section>
+  </main>
+  <footer class="footer"><div><strong>Hormônios da Garoa</strong><span>Caderno Musical · memória coletiva · ensaio</span></div><a href="/">Voltar ao repertório ↗</a></footer>
+</div>
+
+<dialog id="instrument-dialog">
+  <form id="instrument-form" class="dialog-card">
+    <button type="button" class="close-dialog" id="close-dialog" aria-label="Fechar">×</button>
+    <p class="eyebrow">RESERVA / <span id="dialog-instrument-name"></span></p>
+    <h2>Guardar um<br><em>instrumento.</em></h2>
+    <p class="dialog-intro">Confira seus dados e selecione os acessórios disponíveis para este naipe.</p>
+    <div id="dialog-accessories" class="accessories"></div>
+    <button class="primary-btn" type="submit">Confirmar escolha <span>→</span></button>
+    <div id="instrument-feedback" class="feedback hidden" role="status"></div>
+  </form>
+</dialog>
+<script src="/ensaios.js"></script>
+</body>
+</html>
