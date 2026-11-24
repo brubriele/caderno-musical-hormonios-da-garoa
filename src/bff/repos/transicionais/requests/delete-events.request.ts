@@ -1,4 +1,4 @@
-import { numericId } from "../transicionais-id";
+import { numericId } from "../transicionais-id.js";
 
 // corpo do POST v2/manager-events/details/delete (em lote; o Hormônios apaga um por vez, D13)
 export interface IDeleteEventsBody {

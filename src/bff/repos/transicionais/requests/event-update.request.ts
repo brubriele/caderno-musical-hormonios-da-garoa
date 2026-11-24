@@ -1,5 +1,5 @@
-import type { Event } from "../../../domain/Event";
-import { PublicationSettingsRequest, type IEventPublicationBody } from "./publication-settings.request";
+import type { Event } from "../../../domain/Event.js";
+import { PublicationSettingsRequest, type IEventPublicationBody } from "./publication-settings.request.js";
 
 // corpo do PUT v2/manager-events/details/{id}: a version e a publicação inteira
 export interface IEventUpdateBody {

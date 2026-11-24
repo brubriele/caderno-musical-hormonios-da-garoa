@@ -1,5 +1,5 @@
-import type { Event } from "../../../domain/Event";
-import { numericId } from "../transicionais-id";
+import type { Event } from "../../../domain/Event.js";
+import { numericId } from "../transicionais-id.js";
 
 // corpo do PUT v2/manager-events/details/{id}/groups: os grupos esperados a partir do dia em que o
 // encontro foi criado

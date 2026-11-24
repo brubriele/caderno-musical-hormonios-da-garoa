@@ -1,15 +1,15 @@
 import { z } from "zod";
-import type { Event } from "../../../domain/Event";
-import { ManagerEvent } from "../../../domain/ManagerEvent";
-import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper";
-import { EventMapper } from "../../../domain/mappers/EventMapper";
-import { UserMapper } from "../../../domain/mappers/UserMapper";
-import type { User } from "../../../domain/User";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { AttendanceDataSchema } from "./AttendanceResponse";
-import { EventDataSchema } from "./EventResponse";
-import { UserDataSchema } from "./UserResponse";
+import type { Event } from "../../../domain/Event.js";
+import { ManagerEvent } from "../../../domain/ManagerEvent.js";
+import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper.js";
+import { EventMapper } from "../../../domain/mappers/EventMapper.js";
+import { UserMapper } from "../../../domain/mappers/UserMapper.js";
+import type { User } from "../../../domain/User.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { AttendanceDataSchema } from "./AttendanceResponse.js";
+import { EventDataSchema } from "./EventResponse.js";
+import { UserDataSchema } from "./UserResponse.js";
 
 const OPERATION = "findCurrentEvent";
 

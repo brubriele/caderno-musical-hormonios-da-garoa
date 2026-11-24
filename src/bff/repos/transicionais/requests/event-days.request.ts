@@ -1,6 +1,6 @@
-import type { Event } from "../../../domain/Event";
-import type { ITransicionaisDay } from "../responses/event-day.response";
-import { numericId } from "../transicionais-id";
+import type { Event } from "../../../domain/Event.js";
+import type { ITransicionaisDay } from "../responses/event-day.response.js";
+import { numericId } from "../transicionais-id.js";
 
 // um dia no PUT v2/manager-events/details/{id}/config-day: o dia inteiro, como veio do GET, com o
 // ativo e o horário pedidos (D7). Campo do calendário que não veio fica de fora

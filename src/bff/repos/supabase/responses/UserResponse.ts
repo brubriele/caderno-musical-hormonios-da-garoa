@@ -1,13 +1,13 @@
 import { z } from "zod";
-import type { Attendance } from "../../../domain/Attendance";
-import type { Event } from "../../../domain/Event";
-import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper";
-import { SyncStatus } from "../../../domain/SyncStatus";
-import { UserMapper } from "../../../domain/mappers/UserMapper";
-import type { User } from "../../../domain/User";
-import { InfraSource, InvalidResponseError } from "../../../errors/infra-error";
-import { parseResponse } from "../../parse-response";
-import { AttendanceDataSchema } from "./AttendanceResponse";
+import type { Attendance } from "../../../domain/Attendance.js";
+import type { Event } from "../../../domain/Event.js";
+import { AttendanceMapper } from "../../../domain/mappers/AttendanceMapper.js";
+import { SyncStatus } from "../../../domain/SyncStatus.js";
+import { UserMapper } from "../../../domain/mappers/UserMapper.js";
+import type { User } from "../../../domain/User.js";
+import { InfraSource, InvalidResponseError } from "../../../errors/infra-error.js";
+import { parseResponse } from "../../parse-response.js";
+import { AttendanceDataSchema } from "./AttendanceResponse.js";
 
 const OPERATION = "findUser";
 

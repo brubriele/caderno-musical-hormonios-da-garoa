@@ -1,4 +1,4 @@
-import type { Event } from "../../../domain/Event";
+import type { Event } from "../../../domain/Event.js";
 
 // corpo do POST v2/manager-events/details: o encontro de um dia só (startAt = endAt, D2)
 export interface IEventCreateBody {

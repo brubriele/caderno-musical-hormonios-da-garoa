@@ -1,4 +1,4 @@
-import { numericId } from "../transicionais-id";
+import { numericId } from "../transicionais-id.js";
 
 // corpo do PUT v2/manager-events/details/{id}/category (sem version, como no exemplo do contrato; D16)
 export interface IEventCategoryBody {

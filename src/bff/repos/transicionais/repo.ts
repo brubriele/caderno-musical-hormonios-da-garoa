@@ -6,10 +6,10 @@ import {
   SoldOutError,
   StockBelowReservationsError,
   UpstreamUnavailableError,
-} from "../../errors/app-error";
-import { HttpMethod } from "../../clients/http-client";
-import type { IClientResponse } from "../../interfaces/client-response";
-import type { IHttpClient } from "../../interfaces/IHttpClient";
+} from "../../errors/app-error.js";
+import { HttpMethod } from "../../clients/http-client.js";
+import type { IClientResponse } from "../../interfaces/client-response.js";
+import type { IHttpClient } from "../../interfaces/IHttpClient.js";
 import type {
   IAddGroupsData,
   IEventChanges,
@@ -22,43 +22,43 @@ import type {
   ITransicionaisErrorCause,
   ITransicionaisPresence,
   ITransicionaisRepo,
-} from "../../interfaces/transicionais";
-import type { Attendance } from "../../domain/Attendance";
-import type { Event, EventCatalog } from "../../domain/Event";
-import type { User, UserAccount } from "../../domain/User";
+} from "../../interfaces/transicionais.js";
+import type { Attendance } from "../../domain/Attendance.js";
+import type { Event, EventCatalog } from "../../domain/Event.js";
+import type { User, UserAccount } from "../../domain/User.js";
 import {
   AnswerChangedError,
   UpstreamBadContractError,
   UpstreamResponseError,
   VersionConflictError,
-} from "../../errors/infra-error";
-import { createLogger, LogContext } from "../../lib/logger";
-import { isBadContract, isUnavailable } from "../../lib/upstream";
-import { DeleteEventsRequest } from "./requests/delete-events.request";
-import { EventCategoryRequest } from "./requests/event-category.request";
-import { EventCreateRequest } from "./requests/event-create.request";
-import { EventDaysRequest } from "./requests/event-days.request";
-import { EventGroupsRequest } from "./requests/event-groups.request";
-import { EventUpdateRequest } from "./requests/event-update.request";
-import { GuestAccountRequest } from "./requests/guest-account.request";
-import { LoanCatalogUpdateRequest } from "./requests/loan-catalog-update.request";
-import { ValidationChangeRequest } from "./requests/validation-change.request";
-import { CreatedEventResponse } from "./responses/created-event.response";
-import { ErrorBodyResponse } from "./responses/error-body.response";
-import { EventDayResponse, type ITransicionaisDay } from "./responses/event-day.response";
-import { EventListResponse } from "./responses/event-list.response";
-import { EventSummaryResponse } from "./responses/event-summary.response";
-import { GuestAccountResponse } from "./responses/guest-account.response";
-import { GuestPresenceResponse } from "./responses/guest-presence.response";
-import { GuestValidationResponse } from "./responses/guest-validation.response";
-import { OrganizationUserResponse } from "./responses/organization-user.response";
-import { ManagedEventResponse } from "./responses/managed-event.response";
-import { PublicEventResponse } from "./responses/public-event.response";
-import { LoanCatalogResponse } from "./responses/loan-catalog.response";
-import { VersionResponse } from "./responses/version.response";
-import { TransicionaisSession } from "./session";
-import { numericId } from "./transicionais-id";
-import { OrganizationUserRef, TransicionaisUrlCollection } from "./url-collection";
+} from "../../errors/infra-error.js";
+import { createLogger, LogContext } from "../../lib/logger.js";
+import { isBadContract, isUnavailable } from "../../lib/upstream.js";
+import { DeleteEventsRequest } from "./requests/delete-events.request.js";
+import { EventCategoryRequest } from "./requests/event-category.request.js";
+import { EventCreateRequest } from "./requests/event-create.request.js";
+import { EventDaysRequest } from "./requests/event-days.request.js";
+import { EventGroupsRequest } from "./requests/event-groups.request.js";
+import { EventUpdateRequest } from "./requests/event-update.request.js";
+import { GuestAccountRequest } from "./requests/guest-account.request.js";
+import { LoanCatalogUpdateRequest } from "./requests/loan-catalog-update.request.js";
+import { ValidationChangeRequest } from "./requests/validation-change.request.js";
+import { CreatedEventResponse } from "./responses/created-event.response.js";
+import { ErrorBodyResponse } from "./responses/error-body.response.js";
+import { EventDayResponse, type ITransicionaisDay } from "./responses/event-day.response.js";
+import { EventListResponse } from "./responses/event-list.response.js";
+import { EventSummaryResponse } from "./responses/event-summary.response.js";
+import { GuestAccountResponse } from "./responses/guest-account.response.js";
+import { GuestPresenceResponse } from "./responses/guest-presence.response.js";
+import { GuestValidationResponse } from "./responses/guest-validation.response.js";
+import { OrganizationUserResponse } from "./responses/organization-user.response.js";
+import { ManagedEventResponse } from "./responses/managed-event.response.js";
+import { PublicEventResponse } from "./responses/public-event.response.js";
+import { LoanCatalogResponse } from "./responses/loan-catalog.response.js";
+import { VersionResponse } from "./responses/version.response.js";
+import { TransicionaisSession } from "./session.js";
+import { numericId } from "./transicionais-id.js";
+import { OrganizationUserRef, TransicionaisUrlCollection } from "./url-collection.js";
 
 const logger = createLogger("TransicionaisRepo", LogContext.TransicionaisRepository);
 

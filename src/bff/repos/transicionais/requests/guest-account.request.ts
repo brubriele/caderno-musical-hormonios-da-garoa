@@ -1,4 +1,4 @@
-import type { User } from "../../../domain/User";
+import type { User } from "../../../domain/User.js";
 
 // tipo de cadastro: por enquanto o Transicionais só cadastra convidado
 export enum AccountType {
