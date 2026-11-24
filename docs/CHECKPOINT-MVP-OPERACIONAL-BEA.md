@@ -237,7 +237,7 @@ Commit: `abc9b5011c079bb1d28c024e636030fc7a9a6e1a`
 - Deployment Preview: `dpl_7rcKp57AHobcSNz2pXcxWxJJP3eY`.
 - URL específica: https://hormonios-caderno-musical-rcd7s00pg-brubrieletools-3860.vercel.app/ensaios.html
 - URL estável da branch: https://hormonios-caderno-musical-git-feat-m-0013ca-brubrieletools-3860.vercel.app/ensaios.html
-- No último polling, deployment estava BUILDING, com `npm run typecheck` iniciado e sem erro reportado até aquele momento. Confirmar READY antes de compartilhar como deploy concluído.
+- Deployment `dpl_7rcKp57AHobcSNz2pXcxWxJJP3eY` confirmado como `READY` após executar `npm run typecheck` e `vite build`.
 - Warning npm observado: configuração desconhecida `cache-dir` e script de instalação do esbuild não aprovado. Não foi apresentado como erro de TypeScript.
 
 ## Definition of Done (DoD) — MVP de Ensaios & instrumentos
